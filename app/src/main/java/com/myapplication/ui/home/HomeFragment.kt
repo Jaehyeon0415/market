@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
 import com.myapplication.models.Card
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
@@ -25,14 +24,14 @@ class HomeFragment : Fragment() {
 
         cardList.add(Card(getString(R.string.title01), getString(R.string.writer01), getString(R.string.price01), R.drawable.ic_launcher_foreground))
         cardList.add(Card(getString(R.string.title02), getString(R.string.writer02), getString(R.string.price02), R.drawable.ic_launcher_foreground))
-//        cardList.add(Item(getString(R.string.title03), getString(R.string.writer03), getString(R.string.price03), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title04), getString(R.string.writer04), getString(R.string.price04), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title05), getString(R.string.writer05), getString(R.string.price05), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title06), getString(R.string.writer06), getString(R.string.price06), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title07), getString(R.string.writer07), getString(R.string.price07), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title08), getString(R.string.writer08), getString(R.string.price08), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title09), getString(R.string.writer09), getString(R.string.price09), getDrawable(R.drawable.ic_launcher_foreground)!!))
-//        cardList.add(Item(getString(R.string.title10), getString(R.string.writer10), getString(R.string.price10), getDrawable(R.drawable.ic_launcher_foreground)!!))
+        cardList.add(Card(getString(R.string.title03), getString(R.string.writer03), getString(R.string.price03), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title04), getString(R.string.writer04), getString(R.string.price04), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title05), getString(R.string.writer05), getString(R.string.price05), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title06), getString(R.string.writer06), getString(R.string.price06), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title07), getString(R.string.writer07), getString(R.string.price07), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title08), getString(R.string.writer08), getString(R.string.price08), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title09), getString(R.string.writer09), getString(R.string.price09), R.drawable.ic_launcher_foreground))
+        cardList.add(Card(getString(R.string.title10), getString(R.string.writer10), getString(R.string.price10), R.drawable.ic_launcher_foreground))
 
 
 

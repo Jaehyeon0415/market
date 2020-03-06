@@ -6,16 +6,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.myapplication.adapter.CardAdapter
-import com.myapplication.models.Card
-import kotlinx.android.synthetic.main.fragment_home.*
-
 
 class MainActivity : AppCompatActivity() {
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,14 +22,9 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_chat, R.id.navigation_profile
             )
         )
-
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
     }
-
-
 
 //        cardList.add(Item(getString(R.string.title01), getString(R.string.writer01), getString(R.string.price01), getDrawable(R.drawable.ic_launcher_foreground)!!))
 //        cardList.add(Item(getString(R.string.title02), getString(R.string.writer02), getString(R.string.price02), getDrawable(R.drawable.ic_launcher_foreground)!!))

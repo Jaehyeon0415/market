@@ -12,5 +12,6 @@ class CardDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_card_detail)
         text_card_detail_title.text = intent.getStringExtra("cardTitle")
         text_card_detail_writer.text = intent.getStringExtra("cardWriter")
+        text_card_detail_price.text = intent.getStringExtra("cardPrice")
     }
 }

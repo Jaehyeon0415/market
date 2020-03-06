@@ -2,11 +2,12 @@ package com.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.myapplication.R
 import com.myapplication.models.Card
@@ -26,14 +27,10 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     }
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
-        //val cardTitle = itemView?.findViewById<TextView>(R.id.cardTitle)
-        //val cardWriter = itemView?.findViewById<TextView>(R.id.cardWriter)
-        //val cardPrice = itemView?.findViewById<TextView>(R.id.cardPrice)
-        //val cardImage = itemView?.findViewById<ImageView>(R.id.cardImage)
 
         fun bind (card: Card, context: Context) {
             if(card.image != null) {
-               // val resourceId = context.resources.getIdentifier(card.image, "drawable", context.packageName)
+
                 itemView.cardImage.setImageResource(card.image)
             } else {
                 itemView.cardImage.setImageResource(R.mipmap.ic_launcher)
@@ -42,15 +39,20 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
             //itemView.
             itemView.setOnClickListener {
                 itemView.context.startActivity(
+
                     Intent(itemView.context,CardDetailActivity::class.java)
                         .putExtra("cardTitle", card.title)
                         .putExtra("cardWriter", card.writer)
+                        .putExtra("cardPrice", card.price)
+
+
                 )
             }
             itemView.cardTitle.text = card.title
             itemView.cardWriter.text = card.writer
             itemView.cardPrice.text = card.price
         }
+
     }
 
     override fun getItemCount() = cardList.size
