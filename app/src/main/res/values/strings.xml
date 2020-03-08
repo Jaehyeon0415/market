@@ -40,8 +40,16 @@
     <string name="price09">9000</string>
     <string name="price10">10000</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
+    <string name="categoryTitle">우리학교 중고거래</string>
+    <string name="category01">디지털/가전</string>
+    <string name="category02">가구/인테리어</string>
+    <string name="category03">유아동/유아도서</string>
+    <string name="category04">의류/잡화</string>
+    <string name="category05">생활/가공식품</string>
+    <string name="category06">뷰티/미용</string>
+    <string name="category07">스포츠/레저</string>
+    <string name="category08">게임/취미</string>
+    <string name="category09">도서/티켓/음반</string>
+    <string name="category10">반려동물용품</string>
 
 </resources>
