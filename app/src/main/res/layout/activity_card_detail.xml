@@ -25,23 +25,51 @@
         android:textColor="#000"
         android:textStyle="bold"
         android:gravity="left"
-        android:textSize="24dp"/>
+        android:textSize="24dp"
+        android:text="TITLE"/>
+    <TextView
+        android:id="@+id/text_card_detail_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="12dp"
+        android:gravity="left"
+        android:textSize="16dp"
+        android:text="CATEGORY"/>
     <TextView
         android:id="@+id/text_card_detail_writer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="5dp"
         android:layout_marginHorizontal="12dp"
         android:gravity="left"
-        android:textSize="16dp"/>
+        android:textSize="16dp"
+        android:textColor="#000"
+        android:text="WRITER"/>
+
     <TextView
         android:id="@+id/text_card_detail_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="12dp"
         android:gravity="left"
         android:textColor="#000"
         android:textStyle="bold"
-        android:textSize="18dp"/>
+        android:textSize="20dp"
+        android:text="PRICE"/>
+
+    <View style="@style/Divider"/>
+
+    <TextView
+        android:id="@+id/text_card_detail_context"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginHorizontal="12dp"
+        android:gravity="left"
+        android:textSize="18dp"
+        android:textColor="#000"
+        android:text="CONTEXT"/>
 
 </LinearLayout>

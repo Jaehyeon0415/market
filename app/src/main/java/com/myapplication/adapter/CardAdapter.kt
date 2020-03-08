@@ -2,14 +2,11 @@ package com.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.content.res.Resources
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.myapplication.R
 import com.myapplication.models.Card
@@ -55,13 +52,15 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         .putExtra("cardWriter", card.writer)
                         .putExtra("cardPrice", card.price)
                         .putExtra("cardImage", image)
-
-
+                        .putExtra("cardContext", card.context)
+                        .putExtra("cardCategory", card.category)
                 )
             }
             itemView.cardTitle.text = card.title
+            itemView.cardCategory.text = card.category
             itemView.cardWriter.text = card.writer
             itemView.cardPrice.text = card.price
+            itemView.cardContext.text = card.context
         }
 
     }

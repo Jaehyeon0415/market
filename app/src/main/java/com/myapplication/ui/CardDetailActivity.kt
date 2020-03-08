@@ -17,6 +17,8 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_title.text = intent.getStringExtra("cardTitle")
         text_card_detail_writer.text = intent.getStringExtra("cardWriter")
         text_card_detail_price.text = intent.getStringExtra("cardPrice")
+        text_card_detail_context.text = intent.getStringExtra("cardContext")
+        text_card_detail_category.text = intent.getStringExtra("cardCategory")
 
         // image 받아옴
         val bytes: ByteArray = intent.getByteArrayExtra("cardImage")
