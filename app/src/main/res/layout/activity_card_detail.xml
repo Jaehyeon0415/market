@@ -11,6 +11,7 @@
         android:id="@+id/text_card_detail_image"
         android:layout_width="match_parent"
         android:layout_height="350dp"
+        android:scaleType="fitXY"
         android:src="@drawable/ic_launcher_foreground"
         android:background="@color/grey"
         />
