@@ -25,6 +25,73 @@ class CategoryFragment : Fragment() {
                     .putExtra("category","digital")
             )
         }
+        view.category_card_funiture.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","funituer")
+            )
+        }
+        view.category_card_child.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","child")
+            )
+        }
+        view.category_card_clothes.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","clothes")
+            )
+        }
+        view.category_card_life.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","life")
+            )
+        }
+        view.category_card_beauty.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","beauty")
+            )
+        }
+        view.category_card_sports.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","sports")
+            )
+        }
+        view.category_card_game.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","game")
+            )
+        }
+        view.category_card_book.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","book")
+            )
+        }
+        view.category_card_pet.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","pet")
+            )
+        }
+        view.category_card_etc.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","etc")
+            )
+        }
+        view.category_card_buy.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, CategoryDetailActivity::class.java)
+                    .putExtra("category","buy")
+            )
+        }
+
 
         return view
     }

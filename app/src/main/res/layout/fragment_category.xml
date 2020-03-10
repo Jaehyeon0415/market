@@ -283,7 +283,7 @@
                     android:textColor="#000" />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/category_card_ect"
+                android:id="@+id/category_card_etc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
@@ -292,13 +292,13 @@
                 android:clickable="true"
                 android:background="?android:attr/selectableItemBackground">
                 <ImageView
-                    android:id="@+id/category_image_ect"
+                    android:id="@+id/category_image_etc"
                     android:layout_width="30dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start"
                     android:src="@drawable/ic_etc_24dp"/>
                 <TextView
-                    android:id="@+id/category_ect"
+                    android:id="@+id/category_etc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
