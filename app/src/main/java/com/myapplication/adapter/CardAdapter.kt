@@ -29,6 +29,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
         fun bind (card: Card, context: Context) {
+            // 사진이 없을 때 기본이미지 불러옴
             if(card.image != null) {
 
                 itemView.cardImage.setImageResource(card.image)
@@ -62,7 +63,6 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
             itemView.cardPrice.text = card.price
             itemView.cardContext.text = card.context
         }
-
     }
 
     override fun getItemCount() = cardList.size

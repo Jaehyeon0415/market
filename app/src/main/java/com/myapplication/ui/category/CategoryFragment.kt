@@ -17,5 +17,4 @@ class CategoryFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_category, container, false)
         return view
     }
-
 }

@@ -12,7 +12,7 @@ import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
 class HomeFragment : Fragment() {
-    var cardList = arrayListOf<Card>()
+    val cardList = arrayListOf<Card>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
