@@ -30,14 +30,6 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!) {
 
         fun bind (card: Card, context: Context) {
-            // 사진이 없을 때 기본이미지 불러옴
-            if(card.image != null) {
-
-                itemView.cardImage.setImageResource(card.image)
-            } else {
-                itemView.cardImage.setImageResource(R.mipmap.ic_launcher)
-            }
-
             //itemView.
             itemView.setOnClickListener {
 
@@ -58,6 +50,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         .putExtra("cardCategory", card.category)
                 )
             }
+            itemView.cardImage.setImageResource(card.image)
             itemView.cardTitle.text = card.title
             itemView.cardCategory.text = card.category
             itemView.cardWriter.text = card.writer
