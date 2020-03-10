@@ -13,6 +13,7 @@ import com.myapplication.models.Card
 import com.myapplication.ui.CardDetailActivity
 import kotlinx.android.synthetic.main.item_home.view.*
 import java.io.ByteArrayOutputStream
+import java.util.logging.Filter
 
 class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     RecyclerView.Adapter<CardAdapter.Holder>() {
