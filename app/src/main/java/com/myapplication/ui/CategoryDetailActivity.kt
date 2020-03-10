@@ -31,6 +31,5 @@ class CategoryDetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = lm
         recyclerView.setHasFixedSize(true)
 
-        
     }
 }

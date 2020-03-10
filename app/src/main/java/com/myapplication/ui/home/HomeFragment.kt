@@ -16,7 +16,6 @@ class HomeFragment : Fragment() {
         val cardList = arrayListOf<Card>()
     }
 
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -24,6 +23,9 @@ class HomeFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container,false)
         val mCardAdapter = CardAdapter(view.context, cardList)
+
+        // cardList 초기화
+        cardList.clear()
 
         // sample data
         cardList.add(Card(getString(R.string.title01), "digital", getString(R.string.writer01), getString(R.string.price01), R.drawable.airpod, "실사용 3개월, 상태 A급입니다."))
@@ -37,7 +39,6 @@ class HomeFragment : Fragment() {
         cardList.add(Card(getString(R.string.title09), "digital", getString(R.string.writer09), getString(R.string.price09), R.drawable.imac, "실사용 3개월, 상태 A급입니다."))
         cardList.add(Card(getString(R.string.title10), "가구/인테리어", getString(R.string.writer10), getString(R.string.price10), R.drawable.table, "실사용 3개월, 상태 A급입니다."))
         cardList.add(Card(getString(R.string.title11), "digital", "이재환", "150000", R.drawable.tv, "실사용 3개월, 상태 A급입니다."))
-
 
         view.recyclerView.adapter = mCardAdapter
 
