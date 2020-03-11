@@ -5,7 +5,6 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.myapplication.R
 import kotlinx.android.synthetic.main.activity_card_detail.*
-import kotlinx.android.synthetic.main.item_home.*
 
 class CardDetailActivity : AppCompatActivity() {
 

@@ -7,7 +7,7 @@ import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
 import com.myapplication.models.Card
 import com.myapplication.ui.home.HomeFragment
-import kotlinx.android.synthetic.main.activity_category_detail_activity.*
+import kotlinx.android.synthetic.main.activity_category_detail.*
 
 class CategoryDetailActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class CategoryDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category_detail_activity)
+        setContentView(R.layout.activity_category_detail)
 
         val filter = intent.getStringExtra("category")
 

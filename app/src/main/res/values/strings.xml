@@ -54,4 +54,9 @@
     <string name="category11">기타 중고용품</string>
     <string name="category12">삽니다!</string>
 
+    <string name="profile01">판매내역</string>
+    <string name="profile02">구매내역</string>
+    <string name="profile03">관심목록</string>
+    <string name="profile04">공지사항</string>
+
 </resources>

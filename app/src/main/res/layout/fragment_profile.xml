@@ -15,7 +15,75 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/profile_userinfo"
+                android:id="@+id/profile_user_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:clickable="true">
+                <ImageView
+                    android:id="@+id/profile_user_image"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:background="@color/grey"/>
+                 <LinearLayout
+                     android:id="@+id/profile_text"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:orientation="vertical"
+                     android:layout_marginTop="20dp">
+                    <TextView
+                        android:id="@+id/profile_user_nickname"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:gravity="start"
+                        android:textSize="18dp"
+                        android:text="USER NICKNAME"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:id="@+id/profile_user_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:gravity="start"
+                        android:text="USER_ID"
+                        android:textSize="12dp"
+                        android:textColor="#747880"/>
+                 </LinearLayout>
+            </LinearLayout>
+            <View style="@style/Divider"/>
+            <LinearLayout
+                android:id="@+id/profile_user_sell"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/profile_user_sell_image"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_sell_24dp"/>
+                <TextView
+                    android:id="@+id/profile_user_sell_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="20dp"
+                    android:gravity="start"
+                    android:textSize="18dp"
+                    android:text="@string/profile01"
+                    android:textColor="#000" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/profile_user_buylist"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
@@ -24,23 +92,74 @@
                 android:clickable="true"
                 android:background="?android:attr/selectableItemBackground">
                 <ImageView
-                    android:id="@+id/profile_user_image"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:id="@+id/profile_user_buylist_image"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="start"
-                    android:src="@drawable/ic_launcher_foreground"
-                    android:background="@color/grey"/>
+                    android:src="@drawable/ic_buylist_24dp"/>
                 <TextView
-                    android:id="@+id/profile_user_name"
+                    android:id="@+id/profile_user_buylist_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
                     android:layout_marginStart="20dp"
                     android:gravity="start"
                     android:textSize="18dp"
-                    android:text="USER NAME"
+                    android:text="@string/profile02"
                     android:textColor="#000" />
-
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/profile_user_interest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/profile_user_interest_image"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_interest_24dp"/>
+                <TextView
+                    android:id="@+id/profile_user_interest_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="20dp"
+                    android:gravity="start"
+                    android:textSize="18dp"
+                    android:text="@string/profile03"
+                    android:textColor="#000" />
+            </LinearLayout>
+            <View style="@style/Divider"/>
+            <LinearLayout
+                android:id="@+id/profile_notice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="12dp"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:background="?android:attr/selectableItemBackground">
+                <ImageView
+                    android:id="@+id/profile_notice_image"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:src="@drawable/ic_notice_24dp"/>
+                <TextView
+                    android:id="@+id/profile_notice_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginStart="20dp"
+                    android:gravity="start"
+                    android:textSize="18dp"
+                    android:text="@string/profile04"
+                    android:textColor="#000" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

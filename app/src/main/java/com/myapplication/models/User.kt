@@ -1,4 +1,4 @@
 package com.myapplication.models
 
-class User(val id: String, val name: String, val email: String, val pwd: String, val image: Int ) {
+class User(val user_id: Int, val id: String, val nickname: String, val pwd: String, val email: String, val image: Int ) {
 }
