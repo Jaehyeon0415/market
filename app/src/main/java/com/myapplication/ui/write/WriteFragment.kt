@@ -20,12 +20,12 @@ class WriteFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_write, container, false)
 
-        view.write_sell.setOnClickListener {
-            view.context.startActivity(
-                Intent(view.context, SellDetailActivity::class.java)
-                    .putExtra("option", "sell")
-            )
-        }
+//        view.write_sell.setOnClickListener {
+//            view.context.startActivity(
+//                Intent(view.context, SellDetailActivity::class.java)
+//                    .putExtra("option", "sell")
+//            )
+//        }
 
         return view
     }

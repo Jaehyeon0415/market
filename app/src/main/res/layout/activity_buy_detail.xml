@@ -12,7 +12,9 @@
         android:id="@+id/write_buy_textTitle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:maxLength="24"
+        android:maxLines="2"
         android:hint="글 제목"
         android:background="@android:color/transparent"/>
     <View style="@style/Divider2"/>
@@ -46,6 +48,8 @@
         android:layout_height="60dp"
         android:inputType="number"
         android:hint="가격 입력(선택 사항)"
+        android:maxLength="8"
+        android:maxLines="1"
         android:background="@android:color/transparent"/>
     <View style="@style/Divider2"/>
     <EditText
@@ -53,7 +57,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="20dp"
-        android:inputType="text"
+        android:inputType="textMultiLine"
+        android:maxLength="23"
+        android:ems="10"
         android:gravity="start"
         android:hint="게시글 내용을 작성해주세요."
         android:background="@android:color/transparent"/>
