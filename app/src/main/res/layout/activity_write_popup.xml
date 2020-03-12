@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_gravity="bottom"
+    android:padding="10dp"
+    android:background="#FFF">
+
+    <LinearLayout
+        android:id="@+id/write_sell"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="10dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/write_sell_image"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_sell_40dp"/>
+        <LinearLayout
+            android:id="@+id/write_sell_popup_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/write_sell_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:text="중고물품 판매"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/write_sell_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="중고물품을 판매할 수 있습니다."
+                android:textSize="12dp"
+                android:textColor="#747880"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:background="#66bdbdbd"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <LinearLayout
+        android:id="@+id/write_buy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="10dp"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/write_buy_image"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:src="@drawable/ic_buylist_40dp"/>
+        <LinearLayout
+            android:id="@+id/write_popup_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/write_buy_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:text="중고물품 구"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/write_buy_text2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:gravity="start"
+                android:text="중고물품을 구매할 수 있습니다."
+                android:textSize="12dp"
+                android:textColor="#747880"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
