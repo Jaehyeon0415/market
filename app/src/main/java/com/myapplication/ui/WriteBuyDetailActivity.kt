@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.myapplication.R
 
-class BuyDetailActivity : AppCompatActivity() {
+class WriteBuyDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_buy_detail)
+        setContentView(R.layout.activity_write_buy_detail)
     }
 }

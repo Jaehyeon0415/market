@@ -3,29 +3,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.BuyDetailActivity"
+    tools:context=".ui.WriteBuyDetailActivity"
     android:padding="10dp"
     android:orientation="vertical">
 
     <View style="@style/Divider2"/>
+
     <EditText
-        android:id="@+id/write_buy_textTitle"
+        android:id="@+id/write_sell_textTitle"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:inputType="textMultiLine"
-        android:maxLength="24"
-        android:maxLines="2"
+        android:inputType="text"
         android:hint="글 제목"
         android:background="@android:color/transparent"/>
+
     <View style="@style/Divider2"/>
+
     <LinearLayout
-        android:id="@+id/write_buy_category"
+        android:id="@+id/write_sell_category"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:orientation="horizontal"
         android:clickable="true">
         <TextView
-            android:id="@+id/write_buy_category_text"
+            android:id="@+id/write_sell_category_text"
             android:layout_width="360dp"
             android:layout_height="match_parent"
             android:paddingTop="15dp"
@@ -40,28 +41,24 @@
             android:textSize="20dp"
             android:textColor="#000"/>
     </LinearLayout>
+
     <View style="@style/Divider2"/>
 
     <EditText
-        android:id="@+id/write_buy_price"
+        android:id="@+id/write_sell_price"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:inputType="number"
         android:hint="가격 입력(선택 사항)"
-        android:maxLength="8"
-        android:maxLines="1"
         android:background="@android:color/transparent"/>
     <View style="@style/Divider2"/>
     <EditText
-        android:id="@+id/write_buy_context"
+        android:id="@+id/write_sell_context"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="20dp"
-        android:inputType="textMultiLine"
-        android:maxLength="23"
-        android:ems="10"
+        android:inputType="text"
         android:gravity="start"
         android:hint="게시글 내용을 작성해주세요."
         android:background="@android:color/transparent"/>
-
 </LinearLayout>

@@ -88,7 +88,7 @@ class CategoryFragment : Fragment() {
         view.category_card_buy.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, CategoryDetailActivity::class.java)
-                    .putExtra("category","buy")
+                    .putExtra("option","buy")
             )
         }
 

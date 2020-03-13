@@ -7,9 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myapplication.R
-import com.myapplication.ui.BuyDetailActivity
-import com.myapplication.ui.SellDetailActivity
-import kotlinx.android.synthetic.main.activity_write_popup.view.*
+import com.myapplication.ui.WriteBuyDetailActivity
+import com.myapplication.ui.WriteSellDetailActivity
+import kotlinx.android.synthetic.main.fragment_write.view.*
+
 
 class WriteFragment : Fragment() {
 
@@ -20,12 +21,21 @@ class WriteFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_write, container, false)
 
-//        view.write_sell.setOnClickListener {
-//            view.context.startActivity(
-//                Intent(view.context, SellDetailActivity::class.java)
-//                    .putExtra("option", "sell")
-//            )
-//        }
+        // 중고물품 판매
+        view.write_sell.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, WriteSellDetailActivity::class.java)
+                    .putExtra("option", "sell")
+            )
+        }
+
+        // 중고물품 구매
+        view.write_buy.setOnClickListener {
+            view.context.startActivity(
+                Intent(view.context, WriteBuyDetailActivity::class.java)
+                    .putExtra("option", "buy")
+            )
+        }
 
         return view
     }
