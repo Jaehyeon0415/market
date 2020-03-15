@@ -12,7 +12,7 @@
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="100dp"
         android:layout_marginHorizontal="12dp"
         android:text="에브리마켓"
         android:textSize="28dp"
@@ -24,7 +24,7 @@
         android:id="@+id/login_google"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:layout_marginHorizontal="50dp"/>
+        android:layout_marginTop="150dp"
+        android:layout_marginHorizontal="50dp" />
 
 </LinearLayout>

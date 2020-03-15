@@ -116,7 +116,6 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     private fun signOut() { // 로그아웃
         // Firebase sign out
         firebaseAuth.signOut()
-        Toast.makeText(applicationContext, "로그아웃에 성공하였습니다.", Toast.LENGTH_SHORT).show()
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
