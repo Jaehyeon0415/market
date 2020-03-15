@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -15,6 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity : AppCompatActivity(), View.OnClickListener{
 
@@ -84,17 +86,18 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
                 if (task.isSuccessful) {
                     Log.w("LoginActivity", "firebaseAuthWithGoogle 성공", task.exception)
                     toMainActivity(firebaseAuth?.currentUser)
+                    Toast.makeText(this, "로그인에 성공하셨어요~", Toast.LENGTH_SHORT).show()
                 } else {
                     Log.w("LoginActivity", "firebaseAuthWithGoogle 실패", task.exception)
-                    Snackbar.make(login_layout, "로그인에 실패하였습니다.", Snackbar.LENGTH_SHORT).show()
+                    Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_LONG).show()
                 }
             }
     }// firebaseAuthWithGoogle END
 
 
     // toMainActivity
-    fun toMainActivity(user: FirebaseUser?) {
-        if(user !=null) { // MainActivity 로 이동
+    private fun toMainActivity(user: FirebaseUser?) {
+        if(user != null) { // MainActivity 로 이동
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
@@ -110,11 +113,10 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener{
     override fun onClick(p0: View?) {
     }
 
-
     private fun signOut() { // 로그아웃
         // Firebase sign out
         firebaseAuth.signOut()
-
+        Toast.makeText(applicationContext, "로그아웃에 성공하였습니다.", Toast.LENGTH_SHORT).show()
         // Google sign out
         googleSignInClient.signOut().addOnCompleteListener(this) {
             //updateUI(null)
