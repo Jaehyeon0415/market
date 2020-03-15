@@ -24,6 +24,7 @@ class ProfileFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_profile, container, false)
 
+        // 유저 정보 가져오기
         val user = FirebaseAuth.getInstance().currentUser
 
         if (user != null) {

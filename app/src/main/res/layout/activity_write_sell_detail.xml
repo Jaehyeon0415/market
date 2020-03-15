@@ -9,6 +9,15 @@
 
     <View style="@style/Divider2"/>
 
+    <ImageButton
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/photo"
+        android:background="#fff"/>
+
+    <View style="@style/Divider2"/>
+
     <EditText
         android:id="@+id/write_sell_textTitle"
         android:layout_width="match_parent"
