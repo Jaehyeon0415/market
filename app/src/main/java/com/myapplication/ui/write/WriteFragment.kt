@@ -21,6 +21,9 @@ class WriteFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.fragment_write, container, false)
 
+        // 툴바 TITLE
+        view.write_toolbar_title.text = getString(R.string.title_write)
+
         // 중고물품 판매
         view.write_sell.setOnClickListener {
             view.context.startActivity(

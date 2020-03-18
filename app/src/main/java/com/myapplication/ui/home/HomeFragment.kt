@@ -24,6 +24,9 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container,false)
         val mCardAdapter = CardAdapter(view.context, cardList)
 
+        // 툴바 TITLE
+        view.home_toolbar_title.text = getString(R.string.app_name)
+
         // cardList 초기화
         cardList.clear()
 
