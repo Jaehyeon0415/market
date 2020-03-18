@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.myapplication.R
 import com.myapplication.ui.CategoryDetailActivity
+import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.fragment_category.view.*
 
 class CategoryFragment : Fragment() {
@@ -18,6 +19,7 @@ class CategoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_category, container, false)
+
 
         view.category_card_digital.setOnClickListener {
             view.context.startActivity(
