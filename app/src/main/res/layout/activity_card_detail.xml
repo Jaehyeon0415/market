@@ -7,6 +7,16 @@
     android:orientation="vertical"
     tools:context=".ui.CardDetailActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/card_detail_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
+        android:background="#fff">
+    </androidx.appcompat.widget.Toolbar>
+
+    <View style="@style/Divider2"/>
+
     <ImageView
         android:id="@+id/text_card_detail_image"
         android:layout_width="match_parent"

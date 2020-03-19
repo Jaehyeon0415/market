@@ -1,8 +1,13 @@
 package com.myapplication.ui
 
 import android.graphics.BitmapFactory
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.MenuItem
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.myapplication.R
 import kotlinx.android.synthetic.main.activity_card_detail.*
 
@@ -23,5 +28,25 @@ class CardDetailActivity : AppCompatActivity() {
         val bytes: ByteArray = intent.getByteArrayExtra("cardImage")
         val cardImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
         text_card_detail_image.setImageBitmap(cardImage)
+
+        // 툴바 사용하기
+        val toolbar = findViewById<Toolbar>(R.id.card_detail_toolbar)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+
+    }
+
+    // 툴바에 뒤로가기 버튼
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

@@ -2,6 +2,7 @@ package com.myapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.myapplication.R
@@ -32,5 +33,23 @@ class CategoryDetailActivity : AppCompatActivity() {
         recyclerView.layoutManager = lm
         recyclerView.setHasFixedSize(true)
 
+        // 툴바 사용하기
+        val toolbar = findViewById<Toolbar>(R.id.card_detail_toolbar)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+    }
+
+    // 툴바에 뒤로가기 버튼
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val id = item.itemId
+        when (id) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

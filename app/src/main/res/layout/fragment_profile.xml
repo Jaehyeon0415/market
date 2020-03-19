@@ -34,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="10dp"
                 android:orientation="horizontal"
                 android:clickable="true">
                 <ImageView
@@ -55,7 +54,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="20dp"
                         android:gravity="start"
-                        android:textSize="18dp"
+                        android:textSize="20dp"
                         android:text="USER NICKNAME"
                         android:textColor="#000"/>
                     <TextView
@@ -65,7 +64,7 @@
                         android:layout_marginStart="20dp"
                         android:gravity="start"
                         android:text="USER_ID"
-                        android:textSize="12dp"
+                        android:textSize="16dp"
                         android:textColor="#747880"/>
                  </LinearLayout>
             </LinearLayout>
