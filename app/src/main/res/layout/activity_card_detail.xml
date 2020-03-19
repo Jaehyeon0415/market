@@ -1,85 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.CardDetailActivity">
+    tools:context=".ui.CardDetailActivity"
+    android:background="#fff">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/card_detail_toolbar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:minHeight="?android:attr/actionBarSize"
-        android:background="#fff">
-    </androidx.appcompat.widget.Toolbar>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/card_detail_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                android:minHeight="?android:attr/actionBarSize"
+                android:background="#fff">
+            </androidx.appcompat.widget.Toolbar>
+            <View style="@style/Divider2"/>
+            <ImageView
+                android:id="@+id/text_card_detail_image"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_foreground"
+                android:background="@color/grey"/>
 
-    <View style="@style/Divider2"/>
-
-    <ImageView
-        android:id="@+id/text_card_detail_image"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/ic_launcher_foreground"
-        android:background="@color/grey"
-        />
-
-    <TextView
-        android:id="@+id/text_card_detail_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginHorizontal="12dp"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:gravity="left"
-        android:textSize="24dp"
-        android:text="TITLE"/>
-    <TextView
-        android:id="@+id/text_card_detail_category"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="12dp"
-        android:gravity="left"
-        android:textSize="16dp"
-        android:text="CATEGORY"/>
-    <TextView
-        android:id="@+id/text_card_detail_writer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="12dp"
-        android:gravity="left"
-        android:textSize="16dp"
-        android:textColor="#000"
-        android:text="WRITER"/>
-
-    <TextView
-        android:id="@+id/text_card_detail_price"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:layout_marginHorizontal="12dp"
-        android:gravity="left"
-        android:textColor="#000"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        android:text="PRICE"/>
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/text_card_detail_context"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="12dp"
-        android:gravity="left"
-        android:textSize="18dp"
-        android:textColor="#000"
-        android:text="CONTEXT"/>
-
+            <TextView
+                android:id="@+id/text_card_detail_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="12dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:gravity="left"
+                android:textSize="24dp"
+                android:text="TITLE"/>
+            <TextView
+                android:id="@+id/text_card_detail_category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="12dp"
+                android:gravity="left"
+                android:textSize="16dp"
+                android:text="CATEGORY"/>
+            <TextView
+                android:id="@+id/text_card_detail_writer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="12dp"
+                android:gravity="left"
+                android:textSize="16dp"
+                android:textColor="#000"
+                android:text="WRITER"/>
+            <TextView
+                android:id="@+id/text_card_detail_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginHorizontal="12dp"
+                android:gravity="left"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                android:text="PRICE"/>
+            <View style="@style/Divider"/>
+            <TextView
+                android:id="@+id/text_card_detail_context"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="12dp"
+                android:gravity="start"
+                android:textSize="18dp"
+                android:textColor="#000"
+                android:text="CONTEXT"/>
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

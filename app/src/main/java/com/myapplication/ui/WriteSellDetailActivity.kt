@@ -2,14 +2,15 @@ package com.myapplication.ui
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.myapplication.R
 import kotlinx.android.synthetic.main.activity_write_sell_detail.*
-import kotlinx.android.synthetic.main.fragment_write.*
+
 
 class WriteSellDetailActivity : AppCompatActivity() {
 
@@ -29,16 +30,25 @@ class WriteSellDetailActivity : AppCompatActivity() {
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
     }
-    // 툴바에 뒤로가기 버튼
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-        when (id) {
-            android.R.id.home -> {
-                finish()
-                return true
-            }
+
+    // 툴바 옵션 생성
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.write_done, menu)
+        return true
+    }
+
+    // 툴바 옵션 반응
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        android.R.id.home -> {
+            finish()
+            true
         }
-        return super.onOptionsItemSelected(item)
+        R.id.write_done -> {
+            true
+        }
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     // 카테고리 데이터 가져오기
