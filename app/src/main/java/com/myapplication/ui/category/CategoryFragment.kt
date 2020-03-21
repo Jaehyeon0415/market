@@ -34,7 +34,7 @@ class CategoryFragment : Fragment() {
         view.category_card_funiture.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, CategoryDetailActivity::class.java)
-                    .putExtra("category","funituer")
+                    .putExtra("category","funiture")
             )
         }
         view.category_card_child.setOnClickListener {

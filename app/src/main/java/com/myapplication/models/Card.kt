@@ -1,7 +1,11 @@
 package com.myapplication.models
 
-import android.graphics.drawable.Drawable
+data class Card (
+    var title: String = "",
+    var category: String = "",
+    var writer: String = "",
+    var price: String = "",
+//    val image: Int = 0,
+    var context: String = "",
+    var cid: String? = "")
 
-class Card(val title: String, val category: String, val writer: String, val price: String, val image: Int, val context: String, val option: String) {
-
-}

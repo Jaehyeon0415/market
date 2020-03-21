@@ -21,7 +21,6 @@
             android:textColor="#000"/>
 
     </androidx.appcompat.widget.Toolbar>
-
     <View style="@style/Divider2"/>
 
     <LinearLayout
@@ -30,6 +29,7 @@
         android:padding="10dp"
         android:orientation="vertical">
         <ImageButton
+            android:id="@+id/write_sell_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:scaleType="fitXY"

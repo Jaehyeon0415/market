@@ -6,13 +6,20 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
 import com.myapplication.R
+import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 
 
 class WriteSellDetailActivity : AppCompatActivity() {
+
+    lateinit var _db: DatabaseReference
+    val cardList = arrayListOf<Card>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +36,13 @@ class WriteSellDetailActivity : AppCompatActivity() {
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
+
+        _db = FirebaseDatabase.getInstance().reference
     }
 
     // 툴바 옵션 생성
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.write_done, menu)
+        menuInflater.inflate(R.menu.write, menu)
         return true
     }
 
@@ -44,12 +53,40 @@ class WriteSellDetailActivity : AppCompatActivity() {
             true
         }
         R.id.write_done -> {
+            addCard()
+            finish()
             true
         }
         else -> {
             super.onOptionsItemSelected(item)
         }
     }
+
+    private fun addCard(){
+
+        val key = _db.child("Card").push().key
+
+        val user = FirebaseAuth.getInstance().currentUser
+        //Set Card Description
+        if (user != null) {
+            cardList.add(Card(
+                    write_sell_textTitle.text.toString(),
+                    write_sell_category_text.text.toString(),
+                    user.displayName.toString(),
+                    write_sell_price.text.toString(),
+                    write_sell_context.text.toString(),
+                    key
+                )
+            )
+        }
+
+        _db.child("Card").setValue(cardList)
+
+
+
+        Toast.makeText(this, "게시글이 성공적으로 등록되었어요!", Toast.LENGTH_SHORT).show()
+    }
+
 
     // 카테고리 데이터 가져오기
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -58,7 +95,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
             when (requestCode) {
                 100 -> {
                     write_sell_category_text.visibility = View.VISIBLE
-                    write_sell_category_text.text = data!!.getStringExtra("category").toString()
+                    write_sell_category_text.text = data?.getStringExtra("category").toString()
                 }
             }
         }
