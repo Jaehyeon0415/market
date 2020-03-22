@@ -5,7 +5,7 @@ data class Card (
     var category: String = "",
     var writer: String = "",
     var price: String = "",
-//    val image: Int = 0,
+    val image: Int,
     var context: String = "",
-    var cid: String? = "")
+    var option: Boolean )
 

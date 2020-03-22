@@ -11,7 +11,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.myapplication.LoginActivity
 import com.myapplication.R
 import com.myapplication.ui.WriteSellDetailActivity
-import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.profile_user_nickname
 
