@@ -17,8 +17,7 @@ import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 
 class WriteSellDetailActivity : AppCompatActivity() {
 
-    lateinit var _db: DatabaseReference
-    val cardList = arrayListOf<Card>()
+    private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +34,6 @@ class WriteSellDetailActivity : AppCompatActivity() {
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
-
-        _db = FirebaseDatabase.getInstance().reference
     }
 
     // 툴바 옵션 생성
@@ -52,7 +49,8 @@ class WriteSellDetailActivity : AppCompatActivity() {
             true
         }
         R.id.write_done -> {
-
+            val myRef = database.child("message")
+            myRef.push().setValue("123123123")
             Toast.makeText(this, "게시물이 등록되었어요!", Toast.LENGTH_LONG).show()
             finish()
             true
