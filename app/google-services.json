@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "317831518622-vvdqhahlasagkhvl73clfjb1qlck30mh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaehyeon.everymarket",
+            "certificate_hash": "588741ca15671f8c0e02b6010e9df867b21e686e"
+          }
+        },
+        {
+          "client_id": "317831518622-a93355u5me9ubdon984a9kmnpn5j5pnm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaehyeon.everymarket",
+            "certificate_hash": "0409d5aae92eafa7a1d7077f6672d914e7f22948"
+          }
+        },
+        {
           "client_id": "317831518622-hunsfk6r6kridciv3jop1961cg0prupb.apps.googleusercontent.com",
           "client_type": 3
         }

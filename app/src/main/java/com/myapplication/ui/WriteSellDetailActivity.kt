@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.myapplication.R
 import com.myapplication.models.Card
@@ -18,6 +19,8 @@ import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 class WriteSellDetailActivity : AppCompatActivity() {
 
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
+
+    val user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,8 +52,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
             true
         }
         R.id.write_done -> {
-            val myRef = database.child("message")
-            myRef.push().setValue("123123123")
+            addCard()
             Toast.makeText(this, "게시물이 등록되었어요!", Toast.LENGTH_LONG).show()
             finish()
             true
@@ -58,6 +60,20 @@ class WriteSellDetailActivity : AppCompatActivity() {
         else -> {
             super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun addCard() {
+        val uid = user?.uid
+        val myRef = uid?.let { database.child(it).push() }
+        myRef?.child("title")?.setValue(write_sell_textTitle.text.toString())
+        myRef?.child("category")?.setValue(write_sell_category_text.text.toString())
+        if (user != null) {
+            myRef?.child("write")?.setValue(user.displayName.toString())
+        }
+        myRef?.child("price")?.setValue(write_sell_price.text.toString())
+        //myRef?.child("image")?.setValue()
+        myRef?.child("context")?.setValue(write_sell_context.text.toString())
+
     }
 
     // 카테고리 데이터 가져오기
