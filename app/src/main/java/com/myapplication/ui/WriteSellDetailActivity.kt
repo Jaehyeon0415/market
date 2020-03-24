@@ -20,7 +20,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
 
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
-    val user = FirebaseAuth.getInstance().currentUser
+    private val user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +62,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
         }
     }
 
+    // 게시물 등록
     private fun addCard() {
         val uid = user?.uid
         val myRef = uid?.let { database.child(it).push() }
@@ -73,7 +74,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
         myRef?.child("price")?.setValue(write_sell_price.text.toString())
         //myRef?.child("image")?.setValue()
         myRef?.child("context")?.setValue(write_sell_context.text.toString())
-
+        myRef?.child("option")?.setValue("false")
     }
 
     // 카테고리 데이터 가져오기
