@@ -50,7 +50,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         .putExtra("cardCategory", card.category)
                 )
             }
-            itemView.cardImage.setImageResource(card.image)
+            //itemView.cardImage.setImageResource(card.image)
             itemView.cardTitle.text = card.title
             itemView.cardCategory.text = card.category
             itemView.cardWriter.text = card.writer

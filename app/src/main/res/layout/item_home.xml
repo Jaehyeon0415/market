@@ -70,6 +70,20 @@
         app:layout_constraintTop_toBottomOf="@+id/cardContext"
         app:layout_constraintLeft_toRightOf="@+id/cardImage"
         android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/cardId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cardCategory"
+        app:layout_constraintLeft_toRightOf="@+id/cardImage"
+        android:visibility="invisible"/>
+    <TextView
+        android:id="@+id/cardOption"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/cardId"
+        app:layout_constraintLeft_toRightOf="@+id/cardImage"
+        android:visibility="invisible"/>
     <View style="@style/Divider2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"

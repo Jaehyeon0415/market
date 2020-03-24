@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 
 class WriteSellDetailActivity : AppCompatActivity() {
 
+
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
     private val user = FirebaseAuth.getInstance().currentUser
@@ -65,16 +66,18 @@ class WriteSellDetailActivity : AppCompatActivity() {
     // 게시물 등록
     private fun addCard() {
         val uid = user?.uid
-        val myRef = uid?.let { database.child(it).push() }
-        myRef?.child("title")?.setValue(write_sell_textTitle.text.toString())
-        myRef?.child("category")?.setValue(write_sell_category_text.text.toString())
+        val myRef = database.child("card").push()
+        val key: String? = myRef.key
+        myRef.child("title").setValue(write_sell_textTitle.text.toString())
+        myRef.child("category").setValue(write_sell_category_text.text.toString())
         if (user != null) {
-            myRef?.child("write")?.setValue(user.displayName.toString())
+            myRef.child("write").setValue(user.displayName.toString())
         }
-        myRef?.child("price")?.setValue(write_sell_price.text.toString())
+        myRef.child("price").setValue(write_sell_price.text.toString())
         //myRef?.child("image")?.setValue()
-        myRef?.child("context")?.setValue(write_sell_context.text.toString())
-        myRef?.child("option")?.setValue("false")
+        myRef.child("context").setValue(write_sell_context.text.toString())
+        myRef.child("option").setValue("false")
+        myRef.child("id").setValue(uid.toString())
     }
 
     // 카테고리 데이터 가져오기
