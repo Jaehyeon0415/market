@@ -22,6 +22,7 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_writer.text = intent.getStringExtra("cardWriter")
         text_card_detail_price.text = intent.getStringExtra("cardPrice")
         text_card_detail_context.text = intent.getStringExtra("cardContext")
+        text_card_detail_category.text = intent.getStringExtra("cardCategory")
 
 
 
@@ -36,33 +37,6 @@ class CardDetailActivity : AppCompatActivity() {
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
-
-        val ch = intent.getStringExtra("cardCategory")
-
-        // 카테고리 한글로 변경
-        if (ch == "digital") {
-            text_card_detail_category.text = "디지털/가전"
-        } else if (ch == "funiture") {
-            text_card_detail_category.text = "가구/인테리어"
-        } else if (ch == "child") {
-            text_card_detail_category.text = "유아동/유아도서"
-        } else if (ch == "clothes") {
-            text_card_detail_category.text = "의류/잡화"
-        } else if (ch == "life") {
-            text_card_detail_category.text = "생활/가공식품"
-        } else if (ch == "beauty") {
-            text_card_detail_category.text = "뷰티/미용"
-        } else if (ch == "sports") {
-            text_card_detail_category.text = "스포츠/레저"
-        } else if (ch == "game") {
-            text_card_detail_category.text = "게임/취미"
-        } else if (ch == "book") {
-            text_card_detail_category.text = "도서/티켓/음반"
-        } else if (ch == "pet") {
-            text_card_detail_category.text = "반려동물용품"
-        } else if (ch == "ect") {
-            text_card_detail_category.text = "기타 중고용품"
-        }
 
     }
 

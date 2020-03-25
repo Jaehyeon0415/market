@@ -17,67 +17,67 @@ class WriteSellCategoryDetail : AppCompatActivity() {
         // 카테고리 선택시 해당하는 카테고리 값 가져오기
         category_card_digital.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_digital.text.toString())
+            intent.putExtra("category", "digital")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_funiture.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_funiture.text.toString())
+            intent.putExtra("category", "funiture")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_child.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_child.text.toString())
+            intent.putExtra("category", "child")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_clothes.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_clothes.text.toString())
+            intent.putExtra("category", "clothes")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_life.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_life.text.toString())
+            intent.putExtra("category", "life")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_beauty.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_beauty.text.toString())
+            intent.putExtra("category", "beauty")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_sports.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_sports.text.toString())
+            intent.putExtra("category", "sports")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_game.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_game.text.toString())
+            intent.putExtra("category", "game")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_book.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_book.text.toString())
+            intent.putExtra("category", "book")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_pet.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_pet.text.toString())
+            intent.putExtra("category", "pet")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }
         category_card_etc.setOnClickListener {
             val intent = Intent()
-            intent.putExtra("category", category_etc.text.toString())
+            intent.putExtra("category", "ect")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }

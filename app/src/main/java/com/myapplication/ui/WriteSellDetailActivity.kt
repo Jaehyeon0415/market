@@ -63,13 +63,64 @@ class WriteSellDetailActivity : AppCompatActivity() {
         }
     }
 
+    // 카테고리 데이터 가져오기
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                100 -> {
+                    write_sell_category_text.visibility = View.VISIBLE
+                    write_sell_category_text.text = data?.getStringExtra("category")
+//                    when (value) {
+//                        "digital" -> {
+//                            write_sell_category_text.text = getString(R.string.category01)
+//                        }
+//                        "funiture" -> {
+//                            write_sell_category_text.text = getString(R.string.category02)
+//                        }
+//                        "child" -> {
+//                            write_sell_category_text.text = getString(R.string.category03)
+//                        }
+//                        "clothes" -> {
+//                            write_sell_category_text.text = getString(R.string.category04)
+//                        }
+//                        "life" -> {
+//                            write_sell_category_text.text = getString(R.string.category05)
+//                        }
+//                        "beauty" -> {
+//                            write_sell_category_text.text = getString(R.string.category06)
+//                        }
+//                        "sports" -> {
+//                            write_sell_category_text.text = getString(R.string.category07)
+//                        }
+//                        "game" -> {
+//                            write_sell_category_text.text = getString(R.string.category08)
+//                        }
+//                        "book" -> {
+//                            write_sell_category_text.text = getString(R.string.category09)
+//                        }
+//                        "pet" -> {
+//                            write_sell_category_text.text = getString(R.string.category10)
+//                        }
+//                        "etc" -> {
+//                            write_sell_category_text.text = getString(R.string.category11)
+//                        }
+//                        "buy" -> {
+//                            write_sell_category_text.text = getString(R.string.category12)
+//                        }
+//                    }
+                }
+            }
+        }
+    }
+
     // 게시물 등록
     private fun addCard() {
         val uid = user?.uid
         val myRef = database.child("card").push()
-        val key: String? = myRef.key
+
         myRef.child("title").setValue(write_sell_textTitle.text.toString())
-        myRef.child("category").setValue(write_sell_category_text.text.toString())
+        myRef.child("category").setValue(write_sell_category_text.text)
         if (user != null) {
             myRef.child("writer").setValue(user.displayName.toString())
         }
@@ -78,18 +129,5 @@ class WriteSellDetailActivity : AppCompatActivity() {
         myRef.child("context").setValue(write_sell_context.text.toString())
         myRef.child("option").setValue("false")
         myRef.child("id").setValue(uid.toString())
-    }
-
-    // 카테고리 데이터 가져오기
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK) {
-            when (requestCode) {
-                100 -> {
-                    write_sell_category_text.visibility = View.VISIBLE
-                    write_sell_category_text.text = data?.getStringExtra("category").toString()
-                }
-            }
-        }
     }
 }
