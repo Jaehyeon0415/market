@@ -2,7 +2,6 @@ package com.myapplication.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,9 +12,8 @@ import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
 import com.myapplication.models.Card
-import com.myapplication.ui.home.HomeFragment
 import kotlinx.android.synthetic.main.activity_category_detail.*
-import kotlinx.android.synthetic.main.fragment_home.view.*
+import kotlinx.android.synthetic.main.fragment_category.*
 
 class CategoryDetailActivity : AppCompatActivity() {
 
@@ -29,20 +27,23 @@ class CategoryDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_category_detail)
 
         // 툴바 사용하기
-        val toolbar = findViewById<Toolbar>(R.id.card_detail_toolbar)
+        val toolbar = findViewById<Toolbar>(R.id.category_detail_toolbar)
         setSupportActionBar(toolbar)
         val ab = supportActionBar!!
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
 
+        // 필터 이용하여 카테고리별로 나오게하기
         when(intent.getStringExtra("category")) {
             "digital" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category01)
                 val filter = "digital"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for(dataSnapshot1 in dataSnapshot.children){
-                            val value = dataSnapshot1.getValue(Card::class.java)
 
+                            val value = dataSnapshot1.getValue(Card::class.java)
                             if (value != null) {
                                 if (filter == dataSnapshot1.child("category").value) {
                                     list.add(value)
@@ -55,6 +56,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "funiture" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category02)
                 val filter = "funiture"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -71,9 +74,10 @@ class CategoryDetailActivity : AppCompatActivity() {
                     }
                     override fun onCancelled(databaseError: DatabaseError) {}
                 })
-
             }
             "child" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category03)
                 val filter = "child"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -92,6 +96,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "clothes" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category04)
                 val filter = "clothes"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -110,6 +116,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "life" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category05)
                 val filter = "life"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -128,6 +136,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "beauty" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category06)
                 val filter = "beauty"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -146,6 +156,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "sports" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category07)
                 val filter = "sports"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -164,6 +176,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "game" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category08)
                 val filter = "game"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -182,6 +196,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "book" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category09)
                 val filter = "book"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -200,6 +216,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "pet" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category10)
                 val filter = "pet"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -218,6 +236,8 @@ class CategoryDetailActivity : AppCompatActivity() {
                 })
             }
             "etc" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category11)
                 val filter = "etc"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -238,11 +258,9 @@ class CategoryDetailActivity : AppCompatActivity() {
         }
 
         recyclerView.adapter = CardAdapter(this,list)
-
         val lm = LinearLayoutManager(this)
         recyclerView.layoutManager = lm
         recyclerView.setHasFixedSize(true)
-
     }
 
     // 툴바에 뒤로가기 버튼

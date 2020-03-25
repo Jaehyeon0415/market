@@ -2,7 +2,6 @@ package com.myapplication.ui.home
 
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,7 +22,6 @@ class HomeFragment : Fragment() {
     companion object{
         val cardList: ArrayList<Card> = ArrayList()
     }
-
 
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private var myRef = database.reference.child("card")
@@ -47,10 +45,8 @@ class HomeFragment : Fragment() {
                 for(dataSnapshot1 in dataSnapshot.children){
 
                     val value = dataSnapshot1.getValue(Card::class.java)
-                    Log.d("CardValue", value.toString())
                     if (value != null) {
                         cardList.add(value)
-
                         (view.recyclerView.adapter as CardAdapter).notifyDataSetChanged()
                     }
                 }

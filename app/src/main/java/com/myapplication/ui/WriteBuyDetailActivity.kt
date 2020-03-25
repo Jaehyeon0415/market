@@ -59,9 +59,7 @@ class WriteBuyDetailActivity : AppCompatActivity() {
         val myRef = uid?.let { database.child(it).push() }
         myRef?.child("title")?.setValue(write_buy_textTitle.text.toString())
         myRef?.child("category")?.setValue("삽니다!")
-        if (user != null) {
-            myRef?.child("write")?.setValue(user.displayName.toString())
-        }
+        myRef?.child("write")?.setValue(user?.displayName.toString())
         myRef?.child("price")?.setValue(write_buy_price.text.toString())
         //myRef?.child("image")?.setValue()
         myRef?.child("context")?.setValue(write_buy_context.text.toString())
