@@ -4,6 +4,7 @@ import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
@@ -17,6 +18,13 @@ class CardDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_card_detail)
 
+        // 툴바 사용하기
+        val toolbar = findViewById<Toolbar>(R.id.card_detail_toolbar)
+        setSupportActionBar(toolbar)
+        val ab = supportActionBar!!
+        ab.setDisplayShowTitleEnabled(false)
+        ab.setDisplayHomeAsUpEnabled(true)
+
         // string 받아옴
         text_card_detail_title.text = intent.getStringExtra("cardTitle")
         text_card_detail_writer.text = intent.getStringExtra("cardWriter")
@@ -24,19 +32,47 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_context.text = intent.getStringExtra("cardContext")
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
 
-
+        // 영어에서 한글로 변환
+        when(intent.getStringExtra("cardCategory")) {
+            "digital" -> {
+                text_card_detail_category.text = getString(R.string.category01)
+            }
+            "funiture" -> {
+                text_card_detail_category.text = getString(R.string.category02)
+            }
+            "child" -> {
+                text_card_detail_category.text = getString(R.string.category03)
+            }
+            "clothes" -> {
+                text_card_detail_category.text = getString(R.string.category04)
+            }
+            "life" -> {
+                text_card_detail_category.text = getString(R.string.category05)
+            }
+            "beauty" -> {
+                text_card_detail_category.text = getString(R.string.category06)
+            }
+            "sports" -> {
+                text_card_detail_category.text = getString(R.string.category07)
+            }
+            "game" -> {
+                text_card_detail_category.text = getString(R.string.category08)
+            }
+            "book" -> {
+                text_card_detail_category.text = getString(R.string.category09)
+            }
+            "pet" -> {
+                text_card_detail_category.text = getString(R.string.category10)
+            }
+            "etc" -> {
+                text_card_detail_category.text = getString(R.string.category11)
+            }
+        }
 
 //        // image 받아옴
 //        val bytes: ByteArray = intent.getByteArrayExtra("cardImage")
 //        val cardImage = BitmapFactory.decodeByteArray(bytes, 0, bytes.size)
 //        text_card_detail_image.setImageBitmap(cardImage)
-
-        // 툴바 사용하기
-        val toolbar = findViewById<Toolbar>(R.id.card_detail_toolbar)
-        setSupportActionBar(toolbar)
-        val ab = supportActionBar!!
-        ab.setDisplayShowTitleEnabled(false)
-        ab.setDisplayHomeAsUpEnabled(true)
 
     }
 

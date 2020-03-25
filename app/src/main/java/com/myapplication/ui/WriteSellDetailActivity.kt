@@ -71,44 +71,6 @@ class WriteSellDetailActivity : AppCompatActivity() {
                 100 -> {
                     write_sell_category_text.visibility = View.VISIBLE
                     write_sell_category_text.text = data?.getStringExtra("category")
-//                    when (value) {
-//                        "digital" -> {
-//                            write_sell_category_text.text = getString(R.string.category01)
-//                        }
-//                        "funiture" -> {
-//                            write_sell_category_text.text = getString(R.string.category02)
-//                        }
-//                        "child" -> {
-//                            write_sell_category_text.text = getString(R.string.category03)
-//                        }
-//                        "clothes" -> {
-//                            write_sell_category_text.text = getString(R.string.category04)
-//                        }
-//                        "life" -> {
-//                            write_sell_category_text.text = getString(R.string.category05)
-//                        }
-//                        "beauty" -> {
-//                            write_sell_category_text.text = getString(R.string.category06)
-//                        }
-//                        "sports" -> {
-//                            write_sell_category_text.text = getString(R.string.category07)
-//                        }
-//                        "game" -> {
-//                            write_sell_category_text.text = getString(R.string.category08)
-//                        }
-//                        "book" -> {
-//                            write_sell_category_text.text = getString(R.string.category09)
-//                        }
-//                        "pet" -> {
-//                            write_sell_category_text.text = getString(R.string.category10)
-//                        }
-//                        "etc" -> {
-//                            write_sell_category_text.text = getString(R.string.category11)
-//                        }
-//                        "buy" -> {
-//                            write_sell_category_text.text = getString(R.string.category12)
-//                        }
-//                    }
                 }
             }
         }
@@ -121,9 +83,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
 
         myRef.child("title").setValue(write_sell_textTitle.text.toString())
         myRef.child("category").setValue(write_sell_category_text.text)
-        if (user != null) {
-            myRef.child("writer").setValue(user.displayName.toString())
-        }
+        myRef.child("writer").setValue(user?.displayName.toString())
         myRef.child("price").setValue(write_sell_price.text.toString())
         //myRef?.child("image")?.setValue()
         myRef.child("context").setValue(write_sell_context.text.toString())

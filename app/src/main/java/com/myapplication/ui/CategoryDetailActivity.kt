@@ -35,113 +35,205 @@ class CategoryDetailActivity : AppCompatActivity() {
         ab.setDisplayShowTitleEnabled(false)
         ab.setDisplayHomeAsUpEnabled(true)
 
-        Log.d("categoryList", intent.getStringExtra("category"))
         when(intent.getStringExtra("category")) {
-            "디지털/가전" -> {
+            "digital" -> {
+                val filter = "digital"
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
 
-//                val filter = "digital"
-//                myRef.addValueEventListener(object : ValueEventListener {
-//                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-//
-//                        for(dataSnapshot1 in dataSnapshot.children){
-//                            val data = dataSnapshot1.child("category").getValue(Card::class.java)
-//                            Log.d("equals", data.toString())
-//
-//                            val value = dataSnapshot1.getValue(Card::class.java)
-//                            Log.d("CardValue", value.toString())
-//                            if (value != null) {
-//                                if (filter.equals(dataSnapshot1.child("category").getValue(Card::class.java))) {
-//                                    list.add(value)
-//                                }
-//
-//                                recyclerView.adapter?.notifyDataSetChanged()
-//                            }
-//                        }
-//                    }
-//
-//                    override fun onCancelled(databaseError: DatabaseError) {}
-//                })
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "가구/인테리어" -> {
+            "funiture" -> {
                 val filter = "funiture"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
 
             }
-            "유아동/유아도서" -> {
+            "child" -> {
                 val filter = "child"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "의류/잡화" -> {
+            "clothes" -> {
                 val filter = "clothes"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "생활/가공식품" -> {
+            "life" -> {
                 val filter = "life"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "뷰티/미용" -> {
+            "beauty" -> {
                 val filter = "beauty"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "스포츠/레저" -> {
+            "sports" -> {
                 val filter = "sports"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "게임/취미" -> {
+            "game" -> {
                 val filter = "game"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "도서/티켓/음반" -> {
+            "book" -> {
                 val filter = "book"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "반려동물용품" -> {
+            "pet" -> {
                 val filter = "pet"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for(dataSnapshot1 in dataSnapshot.children){
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
-            "기타 중고용품" -> {
+            "etc" -> {
                 val filter = "etc"
-                for (data in HomeFragment.cardList){
-                    if(data.category == filter){
-                        list.add(data)
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for (dataSnapshot1 in dataSnapshot.children) {
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
                     }
-                }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
             }
         }
 
