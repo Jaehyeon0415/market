@@ -33,11 +33,11 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
             //itemView.
             itemView.setOnClickListener {
 
-                // image 넘겨줌
-                val bitmap = ((itemView.cardImage).drawable as BitmapDrawable).bitmap
-                val stream = ByteArrayOutputStream()
-                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
-                val image = stream.toByteArray()
+//                // image 넘겨줌
+//                val bitmap = ((itemView.cardImage).drawable as BitmapDrawable).bitmap
+//                val stream = ByteArrayOutputStream()
+//                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
+//                val image = stream.toByteArray()
 
                 itemView.context.startActivity(
 
@@ -45,7 +45,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         .putExtra("cardTitle", card.title)
                         .putExtra("cardWriter", card.writer)
                         .putExtra("cardPrice", card.price)
-                        .putExtra("cardImage", image)
+                        //.putExtra("cardImage", image)
                         .putExtra("cardContext", card.context)
                         .putExtra("cardCategory", card.category)
                 )

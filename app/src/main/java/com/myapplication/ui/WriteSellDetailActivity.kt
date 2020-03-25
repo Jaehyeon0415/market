@@ -71,7 +71,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
         myRef.child("title").setValue(write_sell_textTitle.text.toString())
         myRef.child("category").setValue(write_sell_category_text.text.toString())
         if (user != null) {
-            myRef.child("write").setValue(user.displayName.toString())
+            myRef.child("writer").setValue(user.displayName.toString())
         }
         myRef.child("price").setValue(write_sell_price.text.toString())
         //myRef?.child("image")?.setValue()
