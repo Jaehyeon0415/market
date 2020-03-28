@@ -6,9 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.myapplication.R
 import kotlinx.android.synthetic.main.activity_write_sell_category_detail.*
-import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 
-class WriteSellCategoryDetail : AppCompatActivity() {
+class WriteSellCategoryDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +23,6 @@ class WriteSellCategoryDetail : AppCompatActivity() {
         category_card_funiture.setOnClickListener {
             val intent = Intent()
             intent.putExtra("category", "funiture")
-            setResult(Activity.RESULT_OK, intent)
-            finish()
-        }
-        category_card_child.setOnClickListener {
-            val intent = Intent()
-            intent.putExtra("category", "child")
             setResult(Activity.RESULT_OK, intent)
             finish()
         }

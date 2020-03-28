@@ -2,8 +2,6 @@ package com.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,8 +10,6 @@ import com.myapplication.R
 import com.myapplication.models.Card
 import com.myapplication.ui.CardDetailActivity
 import kotlinx.android.synthetic.main.item_home.view.*
-import java.io.ByteArrayOutputStream
-import java.util.logging.Filter
 
 class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     RecyclerView.Adapter<CardAdapter.Holder>() {
@@ -54,7 +50,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
             itemView.cardTitle.text = card.title
             itemView.cardCategory.text = card.category
             itemView.cardWriter.text = card.writer
-            itemView.cardPrice.text = card.price
+            itemView.cardPrice.text = "${card.price}원"
             itemView.cardContext.text = card.context
         }
     }

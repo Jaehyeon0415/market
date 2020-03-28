@@ -1,13 +1,11 @@
 package com.myapplication
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.database.FirebaseDatabase
 
 
 class MainActivity : AppCompatActivity() {
@@ -21,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home, R.id.navigation_category, R.id.navigation_write,
-                R.id.navigation_chat, R.id.navigation_profile
+                R.id.navigation_notice, R.id.navigation_profile
             )
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)

@@ -1,12 +1,7 @@
 package com.myapplication.ui
 
-import android.graphics.BitmapFactory
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.myapplication.R
@@ -28,7 +23,7 @@ class CardDetailActivity : AppCompatActivity() {
         // string 받아옴
         text_card_detail_title.text = intent.getStringExtra("cardTitle")
         text_card_detail_writer.text = intent.getStringExtra("cardWriter")
-        text_card_detail_price.text = intent.getStringExtra("cardPrice")
+        text_card_detail_price.text = "${intent.getStringExtra("cardPrice")}원"
         text_card_detail_context.text = intent.getStringExtra("cardContext")
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
 
@@ -39,9 +34,6 @@ class CardDetailActivity : AppCompatActivity() {
             }
             "funiture" -> {
                 text_card_detail_category.text = getString(R.string.category02)
-            }
-            "child" -> {
-                text_card_detail_category.text = getString(R.string.category03)
             }
             "clothes" -> {
                 text_card_detail_category.text = getString(R.string.category04)
@@ -66,6 +58,9 @@ class CardDetailActivity : AppCompatActivity() {
             }
             "etc" -> {
                 text_card_detail_category.text = getString(R.string.category11)
+            }
+            "buy" -> {
+                text_card_detail_category.text = "삽니다!"
             }
         }
 

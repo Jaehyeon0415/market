@@ -12,12 +12,9 @@ import androidx.appcompat.widget.Toolbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.myapplication.R
-import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 
-
 class WriteSellDetailActivity : AppCompatActivity() {
-
 
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
 
@@ -28,7 +25,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
         setContentView(R.layout.activity_write_sell_detail)
 
         write_sell_category.setOnClickListener {
-            val intent = Intent(this, WriteSellCategoryDetail:: class.java)
+            val intent = Intent(this, WriteSellCategoryDetailActivity:: class.java)
             startActivityForResult(intent, 100);
         }
 

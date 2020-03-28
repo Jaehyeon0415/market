@@ -46,8 +46,9 @@ class HomeFragment : Fragment() {
 
                     val value = dataSnapshot1.getValue(Card::class.java)
                     if (value != null) {
-                        cardList.add(value)
-                        (view.recyclerView.adapter as CardAdapter).notifyDataSetChanged()
+                        if("false" == dataSnapshot1.child("option").value)
+                            cardList.add(value)
+                            (view.recyclerView.adapter as CardAdapter).notifyDataSetChanged()
                     }
                 }
             }

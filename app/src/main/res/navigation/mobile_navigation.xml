@@ -24,10 +24,10 @@
         tools:layout="@layout/fragment_write" />
 
     <fragment
-        android:id="@+id/navigation_chat"
-        android:name="com.myapplication.ui.chat.ChatFragment"
-        android:label="@string/title_chat"
-        tools:layout="@layout/fragment_chat" />
+        android:id="@+id/navigation_notice"
+        android:name="com.myapplication.ui.notice.ChatFragment"
+        android:label="공지사항"
+        tools:layout="@layout/fragment_notice" />
 
     <fragment
         android:id="@+id/navigation_profile"

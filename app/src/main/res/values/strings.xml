@@ -3,43 +3,10 @@
     <string name="title_home">에브리마켓</string>
     <string name="title_category">카테고리</string>
     <string name="title_write">글쓰기</string>
-    <string name="title_chat">채팅</string>
+    <string name="title_notice">공지사항</string>
     <string name="title_profile">프로필</string>
 
-    <string name="title01">10 Best Practices for Moving to a Single Activity</string>
-    <string name="title02">Cost of a Pixel Color (Android Dev Summit 18)</string>
-    <string name="title03">App Bundles and more from Android Dev Summit 18!</string>
-    <string name="title04">Fun with LiveData (Android Dev Summit 18)</string>
-    <string name="title05">Keynote (Android Dev Summit 18)</string>
-    <string name="title06">Modern WebView Best Practices (Android Dev Summit 18)</string>
-    <string name="title07">Performance Analysis Using Systrace (Android Dev Summit 18)</string>
-    <string name="title08">Preferential Practices for Preferences (Android Dev Summit 18)</string>
-    <string name="title09">That’s a wrap on Android Dev Summit 2018!</string>
-    <string name="title10">Vitals: Past, Present and Future (Android Dev Summit 18)</string>
-    <string name="title11">(No Brand) 노브랜드 tv</string>
-
-    <string name="writer01">박재현</string>
-    <string name="writer02">고승화</string>
-    <string name="writer03">김영산</string>
-    <string name="writer04">김민종</string>
-    <string name="writer05">한승우</string>
-    <string name="writer06">이창건</string>
-    <string name="writer07">이상혁</string>
-    <string name="writer08">원동연</string>
-    <string name="writer09">조민수</string>
-    <string name="writer10">최정현</string>
-
-    <string name="price01">1000</string>
-    <string name="price02">2000</string>
-    <string name="price03">3000</string>
-    <string name="price04">4000</string>
-    <string name="price05">5000</string>
-    <string name="price06">6000</string>
-    <string name="price07">7000</string>
-    <string name="price08">8000</string>
-    <string name="price09">9000</string>
-    <string name="price10">10000</string>
-
+    <!-- 카테고리 목록 -->
     <string name="categoryTitle">우리학교 중고거래</string>
     <string name="category01">디지털/가전</string>
     <string name="category02">가구/인테리어</string>
@@ -54,10 +21,11 @@
     <string name="category11">기타 중고용품</string>
     <string name="category12">삽니다!</string>
 
-    <string name="profile01">판매내역</string>
-    <string name="profile02">구매내역</string>
+    <!-- 프로필 목록 -->
+    <string name="profile01">판매중</string>
+    <string name="profile02">판매완료</string>
     <string name="profile03">관심목록</string>
-    <string name="profile04">공지사항</string>
+
     <string name="title_activity_login">Sign in</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

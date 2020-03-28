@@ -93,32 +93,6 @@
                     android:textColor="#000" />
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/category_card_child"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="12dp"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:clickable="true"
-                android:background="?android:attr/selectableItemBackground">
-                <ImageView
-                    android:id="@+id/category_image_child"
-                    android:layout_width="30dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:src="@drawable/ic_child_24dp"/>
-                <TextView
-                    android:id="@+id/category_child"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginStart="20dp"
-                    android:gravity="start"
-                    android:textSize="18dp"
-                    android:text="@string/category03"
-                    android:textColor="#000" />
-            </LinearLayout>
-            <LinearLayout
                 android:id="@+id/category_card_clothes"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -34,12 +34,6 @@ class CategoryFragment : Fragment() {
                     .putExtra("category","funiture")
             )
         }
-        view.category_card_child.setOnClickListener {
-            view.context.startActivity(
-                Intent(view.context, CategoryDetailActivity::class.java)
-                    .putExtra("category","child")
-            )
-        }
         view.category_card_clothes.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, CategoryDetailActivity::class.java)
@@ -91,7 +85,7 @@ class CategoryFragment : Fragment() {
         view.category_card_buy.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, CategoryDetailActivity::class.java)
-                    .putExtra("option","buy")
+                    .putExtra("category","buy")
             )
         }
 

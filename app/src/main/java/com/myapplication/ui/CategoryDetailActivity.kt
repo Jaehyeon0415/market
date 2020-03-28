@@ -13,7 +13,6 @@ import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
 import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.activity_category_detail.*
-import kotlinx.android.synthetic.main.fragment_category.*
 
 class CategoryDetailActivity : AppCompatActivity() {
 
@@ -59,26 +58,6 @@ class CategoryDetailActivity : AppCompatActivity() {
                 // 툴바 타이틀 설정
                 category_detail_toolbar_title.text = getString(R.string.category02)
                 val filter = "funiture"
-                myRef.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        for(dataSnapshot1 in dataSnapshot.children){
-                            val value = dataSnapshot1.getValue(Card::class.java)
-
-                            if (value != null) {
-                                if (filter == dataSnapshot1.child("category").value) {
-                                    list.add(value)
-                                }
-                                recyclerView.adapter?.notifyDataSetChanged()
-                            }
-                        }
-                    }
-                    override fun onCancelled(databaseError: DatabaseError) {}
-                })
-            }
-            "child" -> {
-                // 툴바 타이틀 설정
-                category_detail_toolbar_title.text = getString(R.string.category03)
-                val filter = "child"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for(dataSnapshot1 in dataSnapshot.children){
@@ -239,6 +218,26 @@ class CategoryDetailActivity : AppCompatActivity() {
                 // 툴바 타이틀 설정
                 category_detail_toolbar_title.text = getString(R.string.category11)
                 val filter = "etc"
+                myRef.addValueEventListener(object : ValueEventListener {
+                    override fun onDataChange(dataSnapshot: DataSnapshot) {
+                        for (dataSnapshot1 in dataSnapshot.children) {
+                            val value = dataSnapshot1.getValue(Card::class.java)
+
+                            if (value != null) {
+                                if (filter == dataSnapshot1.child("category").value) {
+                                    list.add(value)
+                                }
+                                recyclerView.adapter?.notifyDataSetChanged()
+                            }
+                        }
+                    }
+                    override fun onCancelled(databaseError: DatabaseError) {}
+                })
+            }
+            "buy" -> {
+                // 툴바 타이틀 설정
+                category_detail_toolbar_title.text = getString(R.string.category11)
+                val filter = "buy"
                 myRef.addValueEventListener(object : ValueEventListener {
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for (dataSnapshot1 in dataSnapshot.children) {
