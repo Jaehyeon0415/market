@@ -13,9 +13,7 @@ import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
 import com.myapplication.models.Card
-import kotlinx.android.synthetic.main.activity_category_detail.*
 import kotlinx.android.synthetic.main.activity_user_sell_done.*
-import kotlinx.android.synthetic.main.activity_user_selling.*
 import kotlinx.android.synthetic.main.activity_user_selling.recyclerView
 
 class UserSellDoneActivity : AppCompatActivity() {

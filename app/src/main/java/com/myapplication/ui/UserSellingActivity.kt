@@ -1,8 +1,9 @@
 package com.myapplication.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -11,10 +12,10 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
-import com.myapplication.adapter.CardAdapter
+import com.myapplication.adapter.CardEditAdapter
 import com.myapplication.models.Card
-import kotlinx.android.synthetic.main.activity_category_detail.recyclerView
 import kotlinx.android.synthetic.main.activity_user_selling.*
+
 
 class UserSellingActivity : AppCompatActivity() {
 
@@ -56,8 +57,9 @@ class UserSellingActivity : AppCompatActivity() {
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
+        // 판매완료 버튼 클릭 시 판매완료목록으로 이동
 
-        recyclerView.adapter = CardAdapter(this,list)
+        recyclerView.adapter = CardEditAdapter(this,list)
         val lm = LinearLayoutManager(this)
         recyclerView.layoutManager = lm
         recyclerView.setHasFixedSize(true)
