@@ -41,6 +41,7 @@ class ProfileFragment : Fragment() {
 
             }
         }
+
         // 판매완료
         view.profile_user_sell_done.setOnClickListener {
             view.context.startActivity(
@@ -71,7 +72,7 @@ class ProfileFragment : Fragment() {
 
             Toast.makeText(context, "로그아웃에 성공하였습니다.", Toast.LENGTH_SHORT).show()
         }
-
+        
         return view
     }
 

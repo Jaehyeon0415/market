@@ -44,6 +44,7 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         //.putExtra("cardImage", image)
                         .putExtra("cardContext", card.context)
                         .putExtra("cardCategory", card.category)
+
                 )
             }
             //itemView.cardImage.setImageResource(card.image)
@@ -51,7 +52,6 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
             itemView.cardCategory.text = card.category
             itemView.cardWriter.text = card.writer
             itemView.cardPrice.text = "${card.price}원"
-            itemView.cardContext.text = card.context
         }
     }
 

@@ -3,6 +3,7 @@ package com.myapplication.ui
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -75,8 +76,11 @@ class WriteSellDetailActivity : AppCompatActivity() {
 
     // 게시물 등록
     private fun addCard() {
+
         val uid = user?.uid
         val myRef = database.child("card").push()
+        val key = myRef.key
+        val userRef = database.child("users").child(uid.toString())
 
         myRef.child("title").setValue(write_sell_textTitle.text.toString())
         myRef.child("category").setValue(write_sell_category_text.text)
@@ -86,5 +90,8 @@ class WriteSellDetailActivity : AppCompatActivity() {
         myRef.child("context").setValue(write_sell_context.text.toString())
         myRef.child("option").setValue("false")
         myRef.child("id").setValue(uid.toString())
+
+        userRef.child("myCard").child(key.toString()).child("option").setValue("false")
+
     }
 }

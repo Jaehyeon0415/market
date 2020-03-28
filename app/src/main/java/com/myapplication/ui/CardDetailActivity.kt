@@ -2,6 +2,7 @@ package com.myapplication.ui
 
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.myapplication.R
@@ -77,8 +78,17 @@ class CardDetailActivity : AppCompatActivity() {
             finish()
             true
         }
+        R.id.interest -> {
+            isFavorite()
+            Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
+            true
+        }
         else -> {
             super.onOptionsItemSelected(item)
         }
+    }
+
+    fun isFavorite() {
+
     }
 }
