@@ -31,7 +31,7 @@ class CardEditAdapter(val context: Context, private val cardList: ArrayList<Card
     private val user = FirebaseAuth.getInstance().currentUser
     private var uid = user?.uid.toString()
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var myRef = uid.let { database.reference.child("users").child(it).child("myCard") }
+    private var myRef = database.reference.child("users").child(uid).child("myCard")
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
@@ -63,6 +63,7 @@ class CardEditAdapter(val context: Context, private val cardList: ArrayList<Card
                         //.putExtra("cardImage", image)
                         .putExtra("cardContext", card.context)
                         .putExtra("cardCategory", card.category)
+                        .putExtra("cID", card.id)
 
                 )
             }

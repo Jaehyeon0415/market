@@ -2,9 +2,9 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/interest"
+        android:id="@+id/interest_border"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_interest_24dp"
+        android:icon="@drawable/ic_interest_border_24dp"
         android:title="interest"/>
 
 </menu>

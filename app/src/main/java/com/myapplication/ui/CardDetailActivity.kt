@@ -1,6 +1,7 @@
 package com.myapplication.ui
 
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -19,8 +20,12 @@ import kotlinx.android.synthetic.main.activity_user_selling.*
 class CardDetailActivity : AppCompatActivity() {
 
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    private var myRef = database.reference.child("card")
     private val user = FirebaseAuth.getInstance().currentUser
+    private var uid = user?.uid.toString()
+    private var myRef = database.reference.child("users").child(uid).child("favorite")
+
+    var value: String? = "false"
+    var cID: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +44,9 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_price.text = "${intent.getStringExtra("cardPrice")}원"
         text_card_detail_context.text = intent.getStringExtra("cardContext")
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
+
+        value = intent.getStringExtra("isFavorite")
+        cID = intent.getStringExtra("cID")
 
         // 영어에서 한글로 변환
         when(intent.getStringExtra("cardCategory")) {
@@ -86,7 +94,8 @@ class CardDetailActivity : AppCompatActivity() {
 
     // 툴바 옵션 생성
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.interest, menu)
+
+        menuInflater.inflate(R.menu.interest_border, menu)
         return true
     }
 
@@ -96,9 +105,8 @@ class CardDetailActivity : AppCompatActivity() {
             finish()
             true
         }
-        R.id.interest -> {
+        R.id.interest_border -> {
             isFavorite()
-            Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
             true
         }
         else -> {
@@ -107,15 +115,26 @@ class CardDetailActivity : AppCompatActivity() {
     }
 
     private fun isFavorite() {
-        val filter = user?.uid
-        myRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                for(dataSnapshot1 in dataSnapshot.children){
 
-
+        if(value == "false") {
+            myRef.child(cID.toString()).child("id").setValue(cID)
+            value = "true"
+            Log.d("bbbb", value.toString())
+            Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
+        } else {
+            myRef.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    for(dataSnapshot1 in dataSnapshot.children) {
+                        if(cID == dataSnapshot1.key) {
+                            cID?.let { myRef.child(it).removeValue() }
+                            value = "false"
+                            break
+                        }
+                    }
                 }
-            }
-            override fun onCancelled(databaseError: DatabaseError) {}
-        })
+                override fun onCancelled(databaseError: DatabaseError) {}
+            })
+            Toast.makeText(this, "관심목록에서 삭제했어요!", Toast.LENGTH_SHORT).show()
+        }
     }
 }
