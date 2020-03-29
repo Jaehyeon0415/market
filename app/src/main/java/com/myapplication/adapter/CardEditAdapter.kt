@@ -82,13 +82,12 @@ class CardEditAdapter(val context: Context, private val cardList: ArrayList<Card
                                 val dataCh = database.reference.child("card").child(card.id)
                                 dataCh.child("option").setValue("true")
                                 database.reference.child("users").child(uid).child("myCard").child(card.id).child("option").setValue("true")
-                                cardList.clear()
                             }
                         }
+                        cardList.clear()
                     }
                     override fun onCancelled(databaseError: DatabaseError) {}
                 })
-
                 Toast.makeText(context,"판매완료가 되었어요!", Toast.LENGTH_SHORT).show()
 
             }

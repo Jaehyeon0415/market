@@ -6,10 +6,21 @@ import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
+import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.activity_card_detail.*
+import kotlinx.android.synthetic.main.activity_user_selling.*
 
 class CardDetailActivity : AppCompatActivity() {
+
+    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
+    private var myRef = database.reference.child("card")
+    private val user = FirebaseAuth.getInstance().currentUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,7 +106,16 @@ class CardDetailActivity : AppCompatActivity() {
         }
     }
 
-    fun isFavorite() {
-        
+    private fun isFavorite() {
+        val filter = user?.uid
+        myRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for(dataSnapshot1 in dataSnapshot.children){
+
+
+                }
+            }
+            override fun onCancelled(databaseError: DatabaseError) {}
+        })
     }
 }
