@@ -10,9 +10,9 @@ import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
 import com.myapplication.LoginActivity
 import com.myapplication.R
+import com.myapplication.ui.UserFavoriteActivity
 import com.myapplication.ui.UserSellDoneActivity
 import com.myapplication.ui.UserSellingActivity
-import com.myapplication.ui.WriteSellDetailActivity
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.profile_user_nickname
 
@@ -59,8 +59,8 @@ class ProfileFragment : Fragment() {
         // 관심목록
         view.profile_user_interest.setOnClickListener {
             view.context.startActivity(
-                Intent(view.context, WriteSellDetailActivity::class.java)
-                    .putExtra("category","interest")
+                Intent(view.context, UserFavoriteActivity::class.java)
+
             )
         }
         // 구글 로그아웃
@@ -69,7 +69,6 @@ class ProfileFragment : Fragment() {
             view.context.startActivity(
                 Intent(view.context, LoginActivity::class.java)
             )
-
             Toast.makeText(context, "로그아웃에 성공하였습니다.", Toast.LENGTH_SHORT).show()
         }
         

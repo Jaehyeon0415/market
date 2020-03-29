@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.UserSellDoneActivity"></activity>
+        <activity android:name=".ui.UserFavoriteActivity"></activity>
+        <activity android:name=".ui.UserSellDoneActivity" />
         <activity android:name=".ui.UserSellingActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".ui.WriteSellCategoryDetailActivity" />
