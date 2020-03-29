@@ -46,7 +46,7 @@ class UserSellDoneActivity : AppCompatActivity() {
 
                     val value = dataSnapshot1.getValue(Card::class.java)
                     if (value != null) {
-                        if (filter == dataSnapshot1.child("id").value && "true" == dataSnapshot1.child("option").value) {
+                        if (filter == dataSnapshot1.child("uid").value && "true" == dataSnapshot1.child("option").value) {
                             list.add(value)
                         }
                         recyclerView.adapter?.notifyDataSetChanged()

@@ -1,6 +1,7 @@
 package com.myapplication.ui
 
 import android.os.Bundle
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -72,6 +73,12 @@ class CardDetailActivity : AppCompatActivity() {
 
     }
 
+    // 툴바 옵션 생성
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.interest, menu)
+        return true
+    }
+
     // 툴바에 뒤로가기 버튼
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         android.R.id.home -> {
@@ -89,6 +96,6 @@ class CardDetailActivity : AppCompatActivity() {
     }
 
     fun isFavorite() {
-
+        
     }
 }

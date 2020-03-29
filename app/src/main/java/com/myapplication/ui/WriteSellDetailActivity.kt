@@ -18,8 +18,8 @@ import kotlinx.android.synthetic.main.activity_write_sell_detail.*
 class WriteSellDetailActivity : AppCompatActivity() {
 
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
-
     private val user = FirebaseAuth.getInstance().currentUser
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,7 +52,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
         }
         R.id.write_done -> {
             addCard()
-            Toast.makeText(this, "게시물이 등록되었어요!", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "게시물이 등록되었어요!", Toast.LENGTH_SHORT).show()
             finish()
             true
         }
@@ -89,7 +89,8 @@ class WriteSellDetailActivity : AppCompatActivity() {
         //myRef?.child("image")?.setValue()
         myRef.child("context").setValue(write_sell_context.text.toString())
         myRef.child("option").setValue("false")
-        myRef.child("id").setValue(uid.toString())
+        myRef.child("uid").setValue(uid.toString())
+        myRef.child("id").setValue(key)
 
         userRef.child("myCard").child(key.toString()).child("option").setValue("false")
 

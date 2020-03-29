@@ -2,7 +2,6 @@ package com.myapplication.ui
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -47,7 +46,7 @@ class UserSellingActivity : AppCompatActivity() {
 
                     val value = dataSnapshot1.getValue(Card::class.java)
                     if (value != null) {
-                        if (filter == dataSnapshot1.child("id").value && "false" == dataSnapshot1.child("option").value) {
+                        if (filter == dataSnapshot1.child("uid").value && "false" == dataSnapshot1.child("option").value) {
                             list.add(value)
                         }
                         recyclerView.adapter?.notifyDataSetChanged()
@@ -56,8 +55,6 @@ class UserSellingActivity : AppCompatActivity() {
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-
-        // 판매완료 버튼 클릭 시 판매완료목록으로 이동
 
         recyclerView.adapter = CardEditAdapter(this,list)
         val lm = LinearLayoutManager(this)

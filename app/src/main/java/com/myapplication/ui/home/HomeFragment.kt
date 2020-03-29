@@ -52,7 +52,6 @@ class HomeFragment : Fragment() {
                     }
                 }
             }
-
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 

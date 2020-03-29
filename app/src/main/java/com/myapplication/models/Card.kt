@@ -9,6 +9,7 @@ data class Card(
     //val image: Int = 0,
     var context: String = "",
     var option: String = "",
-    var id: String =""
+    var uid: String = "",
+    var id: String = ""
 )
 
