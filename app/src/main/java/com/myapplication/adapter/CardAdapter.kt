@@ -23,7 +23,6 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     private val user = FirebaseAuth.getInstance().currentUser
     private var uid = user?.uid.toString()
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
-    var isFavorite: String = "false"
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_home, parent, false)
@@ -39,32 +38,13 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
         fun bind (card: Card, context: Context) {
             //itemView.
             itemView.setOnClickListener {
-
 //                // image 넘겨줌
 //                val bitmap = ((itemView.cardImage).drawable as BitmapDrawable).bitmap
 //                val stream = ByteArrayOutputStream()
 //                bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream)
 //                val image = stream.toByteArray()
 
-                // 관심목록에 있는지 유무 확인
-                val favorite = database.reference.child("users").child(uid).child("favorite")
-                favorite.addValueEventListener(object : ValueEventListener {
-                    override fun onDataChange(dataSnapshot: DataSnapshot) {
-                        for(dataSnapshot1 in dataSnapshot.children) {
-                            Log.d("ddd", dataSnapshot1.key.toString())
-                            if(card.id == dataSnapshot1.key) {
-                                isFavorite = "true"
-                                break
-                            }
-                            isFavorite = "false"
-                        }
-                    }
-                    override fun onCancelled(databaseError: DatabaseError) {}
-                })
-                Log.d("isFavorite2", isFavorite)
-
                 itemView.context.startActivity(
-
                     Intent(itemView.context,CardDetailActivity::class.java)
                         .putExtra("cardTitle", card.title)
                         .putExtra("cardWriter", card.writer)
@@ -73,9 +53,9 @@ class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
                         .putExtra("cardContext", card.context)
                         .putExtra("cardCategory", card.category)
                         .putExtra("cID", card.id)
-                        .putExtra("isFavorite", isFavorite)
                 )
             }
+
             //itemView.cardImage.setImageResource(card.image)
             itemView.cardTitle.text = card.title
             itemView.cardCategory.text = card.category
