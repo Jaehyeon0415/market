@@ -74,7 +74,6 @@ class CardEditAdapter(val context: Context, private val cardList: ArrayList<Card
             itemView.cardPrice.text = "${card.price}원"
             itemView.cardId.text = card.id
 
-            itemView.sellDoneButton.setTag(R.id.sellDoneButton, itemView)
             // 판매완료 버튼을 눌렀을 때 해당되는 Item이 판매완료 목록으로 이동
             itemView.sellDoneButton.setOnClickListener {
                 myRef.addValueEventListener(object : ValueEventListener {

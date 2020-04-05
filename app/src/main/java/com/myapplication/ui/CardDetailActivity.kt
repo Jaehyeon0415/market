@@ -65,7 +65,6 @@ class CardDetailActivity : AppCompatActivity() {
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-        Log.d("aaaaa111", option)
         // 영어에서 한글로 변환
         when(intent.getStringExtra("cardCategory")) {
             "digital" -> {
