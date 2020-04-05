@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.CardDetailActivity"
+    tools:context="com.everymarket.ui.CardDetailActivity"
     android:background="#fff">
 
     <ScrollView

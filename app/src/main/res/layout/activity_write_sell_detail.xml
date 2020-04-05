@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.WriteBuyDetailActivity"
+    tools:context="com.everymarket.ui.WriteBuyDetailActivity"
     android:orientation="vertical"
     android:background="#fff">
     <androidx.appcompat.widget.Toolbar
@@ -42,7 +42,8 @@
             android:id="@+id/write_sell_textTitle"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:inputType="text"
+            android:inputType="textMultiLine"
+            android:lines="2"
             android:hint="글 제목"
             android:background="@android:color/transparent"/>
 
@@ -53,22 +54,30 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:orientation="horizontal"
-            android:clickable="true">
-            <TextView
-                android:id="@+id/write_sell_category_text"
-                android:layout_width="360dp"
-                android:layout_height="match_parent"
-                android:paddingTop="15dp"
-                android:text="카테고리 선택"
-                android:textColor="#000"
-                android:textSize="20dp"/>
-            <TextView
+            android:clickable="true"
+            android:focusable="true">
+                <TextView
+                    android:id="@+id/write_sell_category_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="15dp"
+                    android:text="카테고리 선택"
+                    android:textColor="#000"
+                    android:textSize="20dp"/>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="15dp"
-                android:text=">"
-                android:textSize="20dp"
-                android:textColor="#000"/>
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:paddingTop="15dp"
+                    android:layout_marginEnd="10dp"
+                    android:text=">"
+                    android:textSize="20dp"
+                    android:textColor="#000"/>
+            </LinearLayout>
         </LinearLayout>
 
         <View style="@style/Divider2"/>
@@ -78,9 +87,11 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:inputType="number"
+            android:maxLength="8"
             android:hint="가격 입력(선택 사항)"
             android:background="@android:color/transparent"/>
         <View style="@style/Divider2"/>
+
         <EditText
             android:id="@+id/write_sell_context"
             android:layout_width="match_parent"

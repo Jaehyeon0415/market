@@ -20,8 +20,8 @@
             android:adjustViewBounds="true"
             android:background="@color/grey"/>
         <LinearLayout
-            android:layout_width="210dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <TextView
                 android:id="@+id/cardTitle"
@@ -50,7 +50,7 @@
                 android:textSize="16dp"
                 android:textColor="#000"
                 android:textStyle="bold"/>
-
+            <!-- invisible -->
             <TextView
                 android:id="@+id/cardContext"
                 android:layout_width="0dp"
@@ -71,16 +71,31 @@
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:visibility="invisible"/>
+            <!-- invisible -->
+
+            <!-- Button -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp"
+                android:orientation="horizontal">
+                <Button
+                    android:id="@+id/sellDoneButton"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorPrimary"
+                    android:text="판매완료" />
+                <Button
+                    android:id="@+id/sellDeleteButton"
+                    android:layout_width="70dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_gravity="bottom"
+                    android:background="@color/colorAccent"
+                    android:text="삭제" />
+            </LinearLayout>
         </LinearLayout>
-
-        <Button
-            android:id="@+id/sellDoneButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="end"
-            android:background="@color/grey"
-            android:text="판매\n완료" />
-
     </LinearLayout>
 
     <View style="@style/Divider2"

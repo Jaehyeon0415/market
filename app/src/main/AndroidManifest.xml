@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.myapplication">
+    package="com.everymarket">
     <!-- 인터넷 권한 -->
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -13,21 +13,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.UserFavoriteActivity"/>
-        <activity android:name=".ui.UserSellDoneActivity" />
-        <activity android:name=".ui.UserSellingActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ui.WriteSellCategoryDetailActivity" />
-        <activity android:name=".ui.WriteBuyDetailActivity" />
-        <activity android:name=".ui.WriteSellDetailActivity" />
-        <activity android:name=".ui.CategoryDetailActivity" />
-        <activity android:name=".ui.CardDetailActivity" />
+        <activity android:name="com.everymarket.ui.UserFavoriteActivity"/>
+        <activity android:name="com.everymarket.ui.UserSellDoneActivity" />
+        <activity android:name="com.everymarket.ui.UserSellingActivity" />
+        <activity android:name="com.everymarket.LoginActivity" />
+        <activity android:name="com.everymarket.ui.WriteSellCategoryDetailActivity" />
+        <activity android:name="com.everymarket.ui.WriteBuyDetailActivity" />
+        <activity android:name="com.everymarket.ui.WriteSellDetailActivity" />
+        <activity android:name="com.everymarket.ui.CategoryDetailActivity" />
+        <activity android:name="com.everymarket.ui.CardDetailActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.everymarket.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="com.everymarket.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
