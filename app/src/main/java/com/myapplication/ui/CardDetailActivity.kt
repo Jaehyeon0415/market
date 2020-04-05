@@ -45,7 +45,7 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
         cID = intent.getStringExtra("cID")
 
-        Log.d("cID", cID.toString())
+        Log.d("aaaa222", cID.toString())
         // 관심목록 유무확인
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -54,7 +54,7 @@ class CardDetailActivity : AppCompatActivity() {
                         if (data.child(cID.toString()).child("option").value.toString() == "false") {
                             option = "1"
                             break
-                        } else {
+                        } else if (data.child(cID.toString()).child("option").value.toString() == "true"){
                             option = "2"
                             break
                         }
@@ -66,7 +66,7 @@ class CardDetailActivity : AppCompatActivity() {
             }
             override fun onCancelled(databaseError: DatabaseError) {}
         })
-
+        Log.d("aaaaa111", option)
         // 영어에서 한글로 변환
         when(intent.getStringExtra("cardCategory")) {
             "digital" -> {
@@ -134,6 +134,7 @@ class CardDetailActivity : AppCompatActivity() {
 
     // 관심목록 추가, 삭제
     private fun isFavorite() {
+        Log.d("bbbb", cID.toString())
         if (option == "0") {
             favoriteRef.child(cID.toString()).child("option").setValue("true")
             Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
@@ -145,5 +146,4 @@ class CardDetailActivity : AppCompatActivity() {
             Toast.makeText(this, "관심목록에서 삭제했어요!", Toast.LENGTH_SHORT).show()
         }
     }
-
 }
