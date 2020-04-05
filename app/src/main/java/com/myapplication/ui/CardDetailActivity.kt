@@ -45,6 +45,7 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
         cID = intent.getStringExtra("cID")
 
+        Log.d("cID", cID.toString())
         // 관심목록 유무확인
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -99,7 +100,7 @@ class CardDetailActivity : AppCompatActivity() {
                 text_card_detail_category.text = getString(R.string.category11)
             }
             "buy" -> {
-                text_card_detail_category.text = "삽니다!"
+                text_card_detail_category.text = getString(R.string.category12)
             }
         }
 

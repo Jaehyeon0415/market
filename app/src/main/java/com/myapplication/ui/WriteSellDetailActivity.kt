@@ -68,7 +68,38 @@ class WriteSellDetailActivity : AppCompatActivity() {
             when (requestCode) {
                 100 -> {
                     write_sell_category_text.visibility = View.VISIBLE
-                    write_sell_category_text.text = data?.getStringExtra("category")
+                    when (data?.getStringExtra("category")){
+                        "digital" -> {
+                            write_sell_category_text.text = "디지털/가전"
+                        }
+                        "funiture" -> {
+                            write_sell_category_text.text = "가구/인테리어"
+                        }
+                        "clothes" -> {
+                            write_sell_category_text.text = "의류/잡화"
+                        }
+                        "life" -> {
+                            write_sell_category_text.text = "생활/가공식품"
+                        }
+                        "beauty" -> {
+                            write_sell_category_text.text = "뷰티/미용"
+                        }
+                        "sports" -> {
+                        write_sell_category_text.text = "스포츠/레저"
+                        }
+                        "game" -> {
+                            write_sell_category_text.text = "게임/취미"
+                        }
+                        "book" -> {
+                            write_sell_category_text.text = "도서/티켓/음반"
+                        }
+                        "pet" -> {
+                            write_sell_category_text.text = "반려동물용품"
+                        }
+                        "ect" -> {
+                            write_sell_category_text.text = "기타 중고용품"
+                        }
+                    }
                 }
             }
         }
@@ -81,6 +112,39 @@ class WriteSellDetailActivity : AppCompatActivity() {
         val myRef = database.child("card").push()
         val key = myRef.key
         val userRef = database.child("users").child(uid.toString())
+
+        when (write_sell_category_text.text){
+            "디지털/가전" -> {
+                write_sell_category_text.text = getString(R.string.categoryE01)
+            }
+            "가구/인테리어" -> {
+                write_sell_category_text.text = getString(R.string.categoryE02)
+            }
+            "의류/잡화" -> {
+                write_sell_category_text.text = getString(R.string.categoryE04)
+            }
+            "생활/가공식품" -> {
+                write_sell_category_text.text = getString(R.string.categoryE05)
+            }
+            "뷰티/미용" -> {
+                write_sell_category_text.text = getString(R.string.categoryE06)
+            }
+            "스포츠/레저" -> {
+                write_sell_category_text.text = getString(R.string.categoryE07)
+            }
+            "게임/취미" -> {
+                write_sell_category_text.text = getString(R.string.categoryE08)
+            }
+            "도서/티켓/음반" -> {
+                write_sell_category_text.text = getString(R.string.categoryE09)
+            }
+            "반려동물용품" -> {
+                write_sell_category_text.text = getString(R.string.categoryE10)
+            }
+            "기타 중고용품" -> {
+                write_sell_category_text.text = getString(R.string.categoryE11)
+            }
+        }
 
         myRef.child("title").setValue(write_sell_textTitle.text.toString())
         myRef.child("category").setValue(write_sell_category_text.text)

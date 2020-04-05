@@ -21,6 +21,20 @@
     <string name="category11">기타 중고용품</string>
     <string name="category12">삽니다!</string>
 
+    <!-- 카테고리 영어목록 -->
+    <string name="categoryE01">digital</string>
+    <string name="categoryE02">funiture</string>
+    <string name="categoryE03">child</string>
+    <string name="categoryE04">clothes</string>
+    <string name="categoryE05">life</string>
+    <string name="categoryE06">beauty</string>
+    <string name="categoryE07">sports</string>
+    <string name="categoryE08">game</string>
+    <string name="categoryE09">book</string>
+    <string name="categoryE10">pet</string>
+    <string name="categoryE11">etc</string>
+    <string name="categoryE12">buy</string>
+
     <!-- 프로필 목록 -->
     <string name="profile01">판매중</string>
     <string name="profile02">판매완료</string>

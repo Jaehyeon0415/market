@@ -28,7 +28,7 @@ class WriteFragment : Fragment() {
         view.write_sell.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, WriteSellDetailActivity::class.java)
-                    .putExtra("option", "sell")
+
             )
         }
 
@@ -36,7 +36,7 @@ class WriteFragment : Fragment() {
         view.write_buy.setOnClickListener {
             view.context.startActivity(
                 Intent(view.context, WriteBuyDetailActivity::class.java)
-                    .putExtra("option", "buy")
+
             )
         }
 
