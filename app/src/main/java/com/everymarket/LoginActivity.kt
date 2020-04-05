@@ -3,6 +3,7 @@ package com.everymarket
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -41,6 +42,7 @@ class LoginActivity: AppCompatActivity() {
         googleSignInClient = GoogleSignIn.getClient(this, gso)
 
         firebaseAuth = FirebaseAuth.getInstance()
+
     }
 
     private fun signIn() {
@@ -100,5 +102,12 @@ class LoginActivity: AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+    }
+    // 로그인화면에서 뒤로가기 막기
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        return if (keyCode == KeyEvent.KEYCODE_BACK) {
+            Toast.makeText(this, "로그인을 하세요!", Toast.LENGTH_SHORT).show()
+            false
+        } else super.onKeyDown(keyCode, event)
     }
 }

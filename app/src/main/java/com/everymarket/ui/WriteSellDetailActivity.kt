@@ -23,7 +23,7 @@ class WriteSellDetailActivity : AppCompatActivity() {
 
     private var database: DatabaseReference = FirebaseDatabase.getInstance().reference
     private val user = FirebaseAuth.getInstance().currentUser
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_write_sell_detail)
