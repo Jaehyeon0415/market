@@ -12,6 +12,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
 import com.myapplication.adapter.CardAdapter
+import com.myapplication.adapter.CardDeleteAdapter
 import com.myapplication.models.Card
 import kotlinx.android.synthetic.main.activity_user_sell_done.*
 import kotlinx.android.synthetic.main.activity_user_selling.recyclerView
@@ -57,7 +58,7 @@ class UserSellDoneActivity : AppCompatActivity() {
         })
 
 
-        recyclerView.adapter = CardAdapter(this,list)
+        recyclerView.adapter = CardDeleteAdapter(this,list)
         val lm = LinearLayoutManager(this)
         recyclerView.layoutManager = lm
         recyclerView.setHasFixedSize(true)

@@ -20,9 +20,10 @@ class CardDetailActivity : AppCompatActivity() {
     private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val user = FirebaseAuth.getInstance().currentUser
     private var uid = user?.uid.toString()
-    private val favoriteRef = database.reference.child("users").child(uid).child("favorite")
+    private val myRef = database.reference.child("users").child(uid)
+    private val favoriteRef = myRef.child("favorite")
 
-    var favorite: Boolean? = null
+    var option: String = ""
     var cID: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,18 +44,21 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_context.text = intent.getStringExtra("cardContext")
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
         cID = intent.getStringExtra("cID")
-        favorite = false
 
-        // 관심목록에 있는지 유무 확인
-        favoriteRef.addValueEventListener(object : ValueEventListener {
+        // 관심목록 유무확인
+        myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
-                Log.d("ddd111", cID)
-                for(dataSnapshot1 in dataSnapshot.children) {
-                    Log.d("ddd222", dataSnapshot1.key.toString())
-                    if(cID == dataSnapshot1.key) {
-                        favorite = true
-                        Log.d("ddd333", "it's true")
-                        Log.d("ddd444", favorite.toString())
+                for (data in dataSnapshot.children) {
+                    if ("favorite" == data.key) {
+                        if (data.child(cID.toString()).child("option").value.toString() == "false") {
+                            option = "1"
+                            break
+                        } else {
+                            option = "2"
+                            break
+                        }
+                    } else {
+                        option = "0"
                         break
                     }
                 }
@@ -108,11 +112,7 @@ class CardDetailActivity : AppCompatActivity() {
 
     // 툴바 옵션 생성
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        if(favorite == false) {
-            menuInflater.inflate(R.menu.interest_border, menu)
-        } else {
-            menuInflater.inflate(R.menu.interest, menu)
-        }
+        menuInflater.inflate(R.menu.interest_border, menu)
         return true
     }
 
@@ -131,26 +131,18 @@ class CardDetailActivity : AppCompatActivity() {
         }
     }
 
+    // 관심목록 추가, 삭제
     private fun isFavorite() {
-        Log.d("ddd555", favorite.toString())
-        if(favorite == false) {
-            favoriteRef.child(cID.toString()).child("id").setValue(cID)
-            favorite = true
+        if (option == "0") {
+            favoriteRef.child(cID.toString()).child("option").setValue("true")
             Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
-        } else {
-            favoriteRef.addValueEventListener(object : ValueEventListener {
-                override fun onDataChange(dataSnapshot: DataSnapshot) {
-                    for(dataSnapshot1 in dataSnapshot.children) {
-                        if(cID == dataSnapshot1.key) {
-                            favoriteRef.child(cID.toString()).removeValue()
-                            break
-                        }
-                    }
-                }
-                override fun onCancelled(databaseError: DatabaseError) {}
-            })
-            favorite = false
+        } else if (option == "1") {
+            favoriteRef.child(cID.toString()).child("option").setValue("true")
+            Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
+        } else if (option == "2") {
+            favoriteRef.child(cID.toString()).ref.removeValue()
             Toast.makeText(this, "관심목록에서 삭제했어요!", Toast.LENGTH_SHORT).show()
         }
     }
+
 }

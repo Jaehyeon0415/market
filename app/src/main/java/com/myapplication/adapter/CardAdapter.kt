@@ -2,16 +2,11 @@ package com.myapplication.adapter
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
 import com.myapplication.R
 import com.myapplication.models.Card
 import com.myapplication.ui.CardDetailActivity
@@ -19,10 +14,6 @@ import kotlinx.android.synthetic.main.item_home.view.*
 
 class CardAdapter(val context: Context, private val cardList: ArrayList<Card>):
     RecyclerView.Adapter<CardAdapter.Holder>() {
-
-    private val user = FirebaseAuth.getInstance().currentUser
-    private var uid = user?.uid.toString()
-    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_home, parent, false)
