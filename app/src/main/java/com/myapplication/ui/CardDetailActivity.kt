@@ -45,7 +45,6 @@ class CardDetailActivity : AppCompatActivity() {
         text_card_detail_category.text = intent.getStringExtra("cardCategory")
         cID = intent.getStringExtra("cID")
 
-        Log.d("aaaa222", cID.toString())
         // 관심목록 유무확인
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
@@ -134,7 +133,6 @@ class CardDetailActivity : AppCompatActivity() {
 
     // 관심목록 추가, 삭제
     private fun isFavorite() {
-        Log.d("bbbb", cID.toString())
         if (option == "0") {
             favoriteRef.child(cID.toString()).child("option").setValue("true")
             Toast.makeText(this, "관심목록에 추가했어요!", Toast.LENGTH_SHORT).show()
