@@ -27,7 +27,6 @@ class CardDeleteAdapter(val context: Context, private val cardList: ArrayList<Ca
     RecyclerView.Adapter<CardDeleteAdapter.Holder>() {
 
     private val user = FirebaseAuth.getInstance().currentUser
-    private val uid = user?.uid.toString()
     private val database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private val myRef = database.reference
     private val userRef = myRef.child("users")
@@ -78,7 +77,6 @@ class CardDeleteAdapter(val context: Context, private val cardList: ArrayList<Ca
                     override fun onDataChange(dataSnapshot: DataSnapshot) {
                         for(data in dataSnapshot.children){
                             if ("card" == data.key) {
-                                Log.d("bbbb222", data.child(card.id).child("id").value.toString())
                                 if (card.id == data.child(card.id).child("id").value) {
                                     data.child(card.id).ref.removeValue()
                                 }
@@ -103,17 +101,14 @@ class CardDeleteAdapter(val context: Context, private val cardList: ArrayList<Ca
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 for(data in dataSnapshot.children){
                     val userID = data.key.toString()
-                    Log.d("bbbb5555", data.child("favorite").key.toString())
 
                     userRef.child(userID).addValueEventListener(object : ValueEventListener {
                         override fun onDataChange(p0: DataSnapshot) {
                             for (data2 in p0.children) {
-                                Log.d("bbbb9999", data2.key.toString())
                                 if (data2.key == "favorite") {
                                     userRef.child(userID).child("favorite").addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(dataSnapshot2: DataSnapshot) {
                                             for (data3 in dataSnapshot2.children) {
-                                                Log.d("bbbbb6666", data3.key.toString())
                                                 if (data3.key == cID) {
                                                     userRef.child(userID).child("favorite").child(cID).ref.removeValue()
                                                 }
@@ -126,7 +121,6 @@ class CardDeleteAdapter(val context: Context, private val cardList: ArrayList<Ca
                                     userRef.child(userID).child("myCard").addValueEventListener(object : ValueEventListener {
                                         override fun onDataChange(dataSnapshot2: DataSnapshot) {
                                             for (data4 in dataSnapshot2.children) {
-                                                Log.d("bbbbb6666", data4.key.toString())
                                                 if (data4.key == cID) {
                                                     userRef.child(userID).child("myCard").child(cID).ref.removeValue()
                                                 }

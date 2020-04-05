@@ -32,7 +32,6 @@
         android:clipToPadding="false"
         android:padding="10dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_selling"
-        android:layout_above="@+id/deleteButton"/>
+        tools:listitem="@layout/item_selling"/>
 
 </LinearLayout>
