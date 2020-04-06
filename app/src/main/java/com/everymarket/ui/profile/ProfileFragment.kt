@@ -13,10 +13,13 @@ import com.everymarket.R
 import com.everymarket.ui.UserFavoriteActivity
 import com.everymarket.ui.UserSellDoneActivity
 import com.everymarket.ui.UserSellingActivity
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.android.synthetic.main.fragment_profile.view.*
 import kotlinx.android.synthetic.main.fragment_profile.view.profile_user_nickname
 
 class ProfileFragment : Fragment() {
+
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -65,7 +68,7 @@ class ProfileFragment : Fragment() {
         }
         // 구글 로그아웃
         view.logout_google.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
+            FirebaseAuth.getInstance().signOut();
             view.context.startActivity(
                 Intent(view.context, LoginActivity::class.java)
             )
@@ -73,6 +76,6 @@ class ProfileFragment : Fragment() {
         }
         
         return view
-    }
 
+    }
 }

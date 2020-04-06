@@ -59,7 +59,9 @@ class LoginActivity: AppCompatActivity() {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)
-                firebaseAuthWithGoogle(account!!)
+                if (account != null) {
+                    firebaseAuthWithGoogle(account)
+                }
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w("GoogleLogin Failed", "Google sign in failed", e)
@@ -72,8 +74,11 @@ class LoginActivity: AppCompatActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val account = GoogleSignIn.getLastSignedInAccount(this)
+
         if(account != null) {
             updateUI(firebaseAuth.currentUser)
+        } else {
+            updateUI(null)
         }
     }
 
@@ -93,11 +98,13 @@ class LoginActivity: AppCompatActivity() {
                     // If sign in fails, display a message to the user.
                     Log.w("LoginFailed", "signInWithCredential:failure", task.exception)
                     Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_LONG).show()
+                    updateUI(null)
                 }
             }
     }
 
     private fun updateUI(user: FirebaseUser?) {
+
         if(user != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
