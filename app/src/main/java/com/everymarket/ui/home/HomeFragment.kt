@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout.OnRefreshListener
 import com.everymarket.R
 import com.everymarket.adapter.CardAdapter
@@ -39,6 +38,7 @@ class HomeFragment : Fragment() {
         // 툴바 TITLE
         view.home_toolbar_title.text = getString(R.string.app_name)
 
+        // 스와이프시 data refresh
         view.swipe_container.setOnRefreshListener(OnRefreshListener {
             cardList.clear()
             myRef.addValueEventListener(object : ValueEventListener {
