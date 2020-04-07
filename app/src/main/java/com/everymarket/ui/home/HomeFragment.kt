@@ -15,6 +15,9 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_home.view.*
+import java.text.SimpleDateFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment() {
@@ -30,10 +33,8 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
-        val mCardAdapter = CardAdapter(
-            view.context,
-            cardList
-        )
+        val mCardAdapter = CardAdapter(view.context, cardList)
+        view.home_toolbar.inflateMenu(R.menu.search)
 
         // 툴바 TITLE
         view.home_toolbar_title.text = getString(R.string.app_name)
@@ -64,7 +65,6 @@ class HomeFragment : Fragment() {
         )
 
         cardList.clear()
-
         myRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 

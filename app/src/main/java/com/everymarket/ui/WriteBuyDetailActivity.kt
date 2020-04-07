@@ -10,6 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.everymarket.R
+import com.google.firebase.database.ServerValue
 import kotlinx.android.synthetic.main.activity_write_buy_detail.*
 
 class WriteBuyDetailActivity : AppCompatActivity() {
@@ -67,6 +68,7 @@ class WriteBuyDetailActivity : AppCompatActivity() {
         myRef.child("option").setValue("false")
         myRef.child("uid").setValue(uid.toString())
         myRef.child("id").setValue(key)
+        myRef.child("time").setValue(ServerValue.TIMESTAMP)
 
         userRef.child("myCard").child(key.toString()).child("option").setValue("false")
     }

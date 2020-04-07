@@ -1,6 +1,5 @@
 package com.everymarket.models
 
-
 data class Card(
     var title: String = "",
     var category: String = "",
@@ -10,6 +9,7 @@ data class Card(
     var context: String = "",
     var option: String = "",
     var uid: String = "",
-    var id: String = ""
+    var id: String = "",
+    var time: Long = 0
 )
 
