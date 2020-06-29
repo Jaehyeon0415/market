@@ -15,9 +15,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import java.text.SimpleDateFormat
-import java.util.*
-import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment() {
@@ -44,9 +41,7 @@ class HomeFragment : Fragment() {
             cardList.clear()
             myRef.addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
-
                     for(dataSnapshot1 in dataSnapshot.children){
-
                         val value = dataSnapshot1.getValue(Card::class.java)
                         if (value != null) {
                             if("false" == dataSnapshot1.child("option").value)
@@ -57,7 +52,7 @@ class HomeFragment : Fragment() {
                 }
                 override fun onCancelled(databaseError: DatabaseError) {}
             })
-            view.swipe_container.setRefreshing(false)
+            view.swipe_container.isRefreshing = false
         })
 
         view.swipe_container.setColorSchemeResources(
@@ -81,8 +76,8 @@ class HomeFragment : Fragment() {
             override fun onCancelled(databaseError: DatabaseError) {}
         })
 
-        view.recyclerView.adapter = mCardAdapter
 
+        view.recyclerView.adapter = mCardAdapter
         val lm = LinearLayoutManager(view.context)
         view.recyclerView.layoutManager = lm
         view.recyclerView.setHasFixedSize(true)

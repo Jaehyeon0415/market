@@ -7,7 +7,6 @@ import android.view.KeyEvent
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
@@ -24,7 +23,7 @@ class LoginActivity: AppCompatActivity() {
     //google client
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    //private const val TAG = "GoogleActivity"
+    private val TAG = "LoginActivity"
     private val RC_SIGN_IN = 99
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,9 +39,7 @@ class LoginActivity: AppCompatActivity() {
             .build()
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
-
         firebaseAuth = FirebaseAuth.getInstance()
-
     }
 
     private fun signIn() {
@@ -50,7 +47,7 @@ class LoginActivity: AppCompatActivity() {
         startActivityForResult(signInIntent, RC_SIGN_IN)
     }
 
-    public override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
@@ -58,58 +55,51 @@ class LoginActivity: AppCompatActivity() {
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 // Google Sign In was successful, authenticate with Firebase
-                val account = task.getResult(ApiException::class.java)
-                if (account != null) {
-                    firebaseAuthWithGoogle(account)
-                }
+                val account = task.getResult(ApiException::class.java)!!
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.id)
+                firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
-                Log.w("GoogleLogin Failed", "Google sign in failed", e)
-
+                Log.w(TAG, "Google sign in failed", e)
             }
         }
     }
 
-    public override fun onStart() {
+    override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        val account = GoogleSignIn.getLastSignedInAccount(this)
-
-        if(account != null) {
-            updateUI(firebaseAuth.currentUser)
-        } else {
-            updateUI(null)
-        }
+        val currentUser = firebaseAuth.currentUser
+        updateUI(currentUser)
     }
 
-    private fun firebaseAuthWithGoogle(acct: GoogleSignInAccount) {
-        Log.d("FirebaseGoogle", "firebaseAuthWithGoogle:" + acct.id!!)
-
-        val credential = GoogleAuthProvider.getCredential(acct.idToken, null)
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential = GoogleAuthProvider.getCredential(idToken, null)
         firebaseAuth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
-                    Log.d("LoginSuccess", "signInWithCredential:success")
+                    Log.d(TAG, "signInWithCredential:success")
                     val user = firebaseAuth.currentUser
                     updateUI(user)
-                    Toast.makeText(this, "로그인에 성공하셨어요~", Toast.LENGTH_SHORT).show()
                 } else {
                     // If sign in fails, display a message to the user.
-                    Log.w("LoginFailed", "signInWithCredential:failure", task.exception)
-                    Toast.makeText(this, "로그인에 실패하였습니다.", Toast.LENGTH_LONG).show()
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    // ...
+                    Toast.makeText(this, "Authentication Failed.", Toast.LENGTH_SHORT).show()
                     updateUI(null)
                 }
+
+                // ...
             }
     }
 
     private fun updateUI(user: FirebaseUser?) {
-
         if(user != null) {
             startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
     }
+
     // 로그인화면에서 뒤로가기 막기
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         return if (keyCode == KeyEvent.KEYCODE_BACK) {
