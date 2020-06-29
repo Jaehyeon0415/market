@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "317831518622-nuoni6misel9bok8dmlqp7okp4u5klju.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jaehyeon.everymarket",
+            "certificate_hash": "7cf6affca5e1822b804ca838f8de226474627c06"
+          }
+        },
+        {
           "client_id": "317831518622-vvdqhahlasagkhvl73clfjb1qlck30mh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
