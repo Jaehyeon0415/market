@@ -15,6 +15,12 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlNormal">@color/grey</item>
+        <item name="colorControlActivated">@color/blue</item>
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+    </style>
+
     <!-- 구분선 -->
     <style name="Divider">
         <item name="android:layout_width">match_parent</item>

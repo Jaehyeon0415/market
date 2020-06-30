@@ -34,9 +34,8 @@ class LoginActivity: AppCompatActivity() {
 
         signup_user.setOnClickListener  {
             startActivity(Intent(this, SignUpActivity::class.java))
-            overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit)
+            overridePendingTransition(R.anim.slide_right_in,R.anim.slide_left_out)
         }
-
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
