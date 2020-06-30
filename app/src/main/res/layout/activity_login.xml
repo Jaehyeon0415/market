@@ -31,8 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/user"/>
-
+            android:src="@drawable/ic_person_24"/>
         <EditText
             android:id="@+id/user_id"
             android:layout_width="match_parent"
@@ -53,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/lock"/>
+            android:src="@drawable/ic_lock_24"/>
 
         <EditText
             android:id="@+id/user_pwd"
@@ -61,15 +60,19 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:hint="PASSWORD"
-            android:inputType="textPassword"/>
+            android:inputType="textPassword"
+            android:password="true"
+            android:maxLength="20"/>
     </LinearLayout>
+
     <Button
         android:id="@+id/user_signUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
-        android:text="로그인 하기"
+        android:text="로그인"
         android:background="@drawable/rounded_corner_stroke"/>
 
     <Button
@@ -81,11 +84,13 @@
         android:text="회원가입"
         android:background="@drawable/rounded_corner_color"/>
 
-    <com.google.android.gms.common.SignInButton
+    <ImageView
         android:id="@+id/login_google"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="50dp"
-        android:background="@drawable/rounded_corner"/>
+        android:layout_marginEnd="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_gravity="end"
+        android:src="@drawable/google_login"/>
 
 </LinearLayout>
