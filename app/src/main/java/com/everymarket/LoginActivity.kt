@@ -30,7 +30,13 @@ class LoginActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        login_google.setOnClickListener{signIn()}
+        login_google.setOnClickListener {signIn()}
+
+        signup_user.setOnClickListener  {
+            startActivity(Intent(this, SignUpActivity::class.java))
+            overridePendingTransition(R.anim.slide_enter,R.anim.slide_exit)
+        }
+
 
         // Configure Google Sign In
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -40,6 +46,7 @@ class LoginActivity: AppCompatActivity() {
 
         googleSignInClient = GoogleSignIn.getClient(this, gso)
         firebaseAuth = FirebaseAuth.getInstance()
+
     }
 
     private fun signIn() {
